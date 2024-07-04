@@ -13,7 +13,6 @@ export class DynamicComponent implements OnInit {
   componentData = [];
 
   ngOnInit(): void {
-    console.log('this.component', this.component);
     this.componentData = this.component.data;
   }
 

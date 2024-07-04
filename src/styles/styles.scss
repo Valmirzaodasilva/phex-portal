@@ -17,6 +17,7 @@ $background-secondary: #f8f9fa;
 html,
 body {
   background-color: $background-secondary;
+  overflow-x: hidden;
 }
 
 .btn-primary {
