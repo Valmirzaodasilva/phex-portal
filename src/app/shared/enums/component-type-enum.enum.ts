@@ -1,0 +1,14 @@
+export enum ComponentTypeEnum {
+  HERO = "HERO",
+  BUTTON = "BUTTON",
+  TEXT = "TEXT",
+  TITLE = "TITLE",
+  IMAGE = "IMAGE",
+  SERVICE_ITEM = "SERVICE_ITEM",
+  INPUT = "INPUT",
+  TEXT_AREA = "TEXT_AREA",
+  SELECT = "SELECT",
+  CHECKBOX = "CHECKBOX",
+  RADIO = "RADIO",
+  DATE = "DATE",
+}

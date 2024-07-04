@@ -1,1 +1,44 @@
-<p>hero works!</p>
+<div id="carouselHero" class="custom-container carousel slide">
+  <div class="carousel-inner h-100">
+    <div
+      class="carousel-item h-100"
+      *ngFor="let carouselData of dataDisplay.carousel; let index = index"
+      [class.active]="index === sliderNumber"
+    >
+      <img
+        [src]="getUrlAssets(carouselData.url)"
+        class="d-block w-100 h-100"
+        alt="..."
+      />
+      <div
+        *ngIf="carouselData.title || carouselData.subtitle"
+        class="carousel-caption d-none d-md-block"
+      >
+        <h5 *ngIf="carouselData.title">{{ carouselData.title }}</h5>
+        <p *ngIf="carouselData.subtitle">{{ carouselData.title }}</p>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="isMultipleCarouselImages">
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselHero"
+      data-bs-slide="prev"
+      (click)="previousSlide()"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselHero"
+      data-bs-slide="next"
+      (click)="nextSlide()"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </ng-container>
+</div>

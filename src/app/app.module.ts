@@ -14,6 +14,7 @@ import { ServiceItemComponent } from './components/dynamic/service-item/service-
 import { TitleComponent } from './components/dynamic/title/title.component';
 import { TextComponent } from './components/dynamic/text/text.component';
 import { MapComponent } from './components/dynamic/map/map.component';
+import { DynamicComponent } from './components/dynamic/dynamic.component';
 
 @NgModule({
   declarations: [
@@ -27,14 +28,11 @@ import { MapComponent } from './components/dynamic/map/map.component';
     ServiceItemComponent,
     TitleComponent,
     TextComponent,
-    MapComponent
+    MapComponent,
+    DynamicComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
