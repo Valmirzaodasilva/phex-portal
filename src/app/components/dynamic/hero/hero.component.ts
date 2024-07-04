@@ -4,7 +4,7 @@ import {
   DataComponentModel,
 } from 'src/app/shared/models/dynamic-page-models/dynamic-page.model';
 
-export class DataHeroModel {
+class DataHeroModel {
   title: string;
   carousel: Array<CarouselData>;
 }

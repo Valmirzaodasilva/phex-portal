@@ -5,6 +5,9 @@ export class DataComponentModel {
   text?: string;
   title?: string;
   subtitle?: string;
+  sizeMobile?: number;
+  sizeTablet?: number;
+  sizeDesktop?: number;
   images?: Array<string>;
   carousel?: Array<CarouselData>;
   items?: Array<{
@@ -26,7 +29,7 @@ export class DynamicPageModel {
 }
 
 export class CarouselData {
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   url: string;
 }

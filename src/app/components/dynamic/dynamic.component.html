@@ -1,5 +1,5 @@
-<app-title *ngIf="isComponentTitle"></app-title>
-<app-text *ngIf="isComponentText"></app-text>
-<app-image *ngIf="isComponentImage"></app-image>
-<app-button *ngIf="isComponentButton"></app-button>
+<app-title *ngIf="isComponentTitle" [data]="componentData"></app-title>
+<app-text *ngIf="isComponentText" [data]="componentData"></app-text>
+<app-image *ngIf="isComponentImage" [data]="componentData"></app-image>
+<app-button *ngIf="isComponentButton" [data]="componentData"></app-button>
 <app-hero *ngIf="isComponentHero" [data]="componentData"></app-hero>
