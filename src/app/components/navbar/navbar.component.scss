@@ -1,0 +1,21 @@
+@import "src/styles/styles.scss";
+
+.style-navbar {
+  height: 10px;
+}
+
+ul {
+  min-height: 30px;
+}
+
+.nav-link {
+  cursor: pointer;
+  color: $tertiary;
+  padding: 0px;
+}
+
+.navbar .nav-link:hover,
+.nav-link.active {
+  color: $nav-link-hover !important;
+  border-bottom: 2px solid #ed1c24;
+}
