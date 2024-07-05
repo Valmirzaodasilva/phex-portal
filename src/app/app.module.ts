@@ -15,10 +15,13 @@ import { TitleComponent } from './components/dynamic/title/title.component';
 import { TextComponent } from './components/dynamic/text/text.component';
 import { MapComponent } from './components/dynamic/map/map.component';
 import { DynamicComponent } from './components/dynamic/dynamic.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconDirective } from './shared/directives/fa-icon.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FaIconDirective,
     HomePage,
     LoadingComponent,
     NavbarComponent,
@@ -31,7 +34,7 @@ import { DynamicComponent } from './components/dynamic/dynamic.component';
     MapComponent,
     DynamicComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent],
 })

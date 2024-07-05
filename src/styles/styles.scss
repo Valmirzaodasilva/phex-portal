@@ -1,12 +1,19 @@
 $primary: #ef3d36;
 $secondary: #0b4076;
 $tertiary: #6d6e70;
+$color: white;
+:root {
+  --primary-color: #ef3d36;
+  --secondary-color: #0b4076;
+  --tertiary-color: #6d6e70;
 
-$button-primary-text-color: #ffffff;
+  --button-primary-text-color: #ffffff;
+  --bs-btn-color: white !important;
 
-$nav-link-hover: #636464;
-
-$background-secondary: #f8f9fa;
+  --nav-link-hover: #636464;
+  --background-secondary: #c9c9c9;
+  --bs-body-bg: #ebe9e8;
+}
 
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
@@ -16,10 +23,11 @@ $background-secondary: #f8f9fa;
 
 html,
 body {
-  background-color: $background-secondary;
+  background-color: var(--bs-body-bg);
   overflow-x: hidden;
 }
 
 .btn-primary {
-  color: $button-primary-text-color;
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
 }

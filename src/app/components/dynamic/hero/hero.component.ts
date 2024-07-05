@@ -9,6 +9,12 @@ class DataHeroModel {
   carousel: Array<CarouselData>;
 }
 
+/**
+ * @DOCUMENTATION
+ * Requisitos: title, carousel (array de objetos com url obrigatória mais title, text opcional)
+ * Obs: atualize o ComponentTypeEnum 
+ */
+
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',

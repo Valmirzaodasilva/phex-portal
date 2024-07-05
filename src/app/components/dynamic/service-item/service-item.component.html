@@ -1,1 +1,34 @@
-<p>service-item works!</p>
+<div class="row mb-3 d-flex justify-content-between">
+  <ng-container *ngFor="let serviceItem of dataDisplay">
+    <div
+      [ngClass]="
+        'col-sm-' +
+        serviceItem.sizeMobile +
+        ' col-lg-' +
+        serviceItem.sizeTablet +
+        ' col-xl-' +
+        serviceItem.sizeDesktop
+      "
+    >
+      <div class="service-item">
+        <div class="header d-flex align-items-center gap-3">
+          <i class="icon" [appFaIcon]="serviceItem.icon"></i>
+          <div class="title">{{ serviceItem.title }}</div>
+        </div>
+
+        <div class="content mt-2 ms-2">{{ serviceItem.text }}</div>
+
+        <div class="footer mt-2 d-flex justify-content-end">
+          <a
+            class="btn btn-primary gap-2"
+            [routerLink]="serviceItem.buttonLink"
+            [queryParams]="serviceItem.queryParams"
+          >
+            <span>{{ serviceItem.buttonText }}</span>
+            <i class="icon chev ms-2" appFaIcon="faChevronRight"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

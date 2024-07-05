@@ -35,4 +35,8 @@ export class DynamicComponent implements OnInit {
   get isComponentButton(): boolean {
     return this.component.type === ComponentTypeEnum.BUTTON;
   }
+
+  get isComponentServiceItem(): boolean {
+    return this.component.type === ComponentTypeEnum.SERVICE_ITEM;
+  }
 }

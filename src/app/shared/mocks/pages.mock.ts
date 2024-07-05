@@ -6,7 +6,7 @@ export const mockDefault = {
   components: [],
 };
 
-export const mockHome = {
+export const mockHomePage = {
   components: [
     {
       type: ComponentTypeEnum.HERO,
@@ -64,5 +64,60 @@ export const mockHome = {
         },
       ],
     },
+  ],
+};
+
+export const mockServicePage = {
+  components: [
+    {
+      type: ComponentTypeEnum.TITLE,
+      data: [
+        {
+          text: 'This is a Service Page',
+          sizeDesktop: 12,
+        },
+      ],
+    },
+   
+    {
+      type: ComponentTypeEnum.SERVICE_ITEM,
+      data: [
+        {
+          // Requisitos: title, text, icon, buttonText, buttonLink, sizeIcon, sizeMobile, sizeTablet, sizeDesktop
+          title: 'This is a Title Page',
+          text: 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações ',
+          icon: 'faDolly',
+          buttonText: 'Ver mais',
+          buttonLink: '/contact',
+          sizeMobile: 12,
+          sizeTablet: 8,
+          sizeDesktop: 3,
+        },
+        {
+          // Requisitos: title, text, icon, buttonText, buttonLink, sizeIcon, sizeMobile, sizeTablet, sizeDesktop
+          title: 'This is a Title Page',
+          text: 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações ',
+          icon: 'faDolly',
+          buttonText: 'Ver mais',
+          buttonLink: '/contact',
+          sizeMobile: 12,
+          sizeTablet: 8,
+          sizeDesktop: 3,
+        },
+        {
+          // Requisitos: title, text, icon, buttonText, buttonLink, sizeIcon, sizeMobile, sizeTablet, sizeDesktop
+          title: 'This is a Title Page',
+          text: 'A expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações ',
+          icon: 'faDolly',
+          buttonText: 'Ver mais',
+          buttonLink: '/contact',
+          sizeMobile: 12,
+          sizeTablet: 8,
+          sizeDesktop: 3,
+        },
+ 
+      ],
+    },
+   
   ],
 };

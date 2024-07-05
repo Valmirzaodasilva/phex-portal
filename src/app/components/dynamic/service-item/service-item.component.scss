@@ -1,0 +1,23 @@
+.header {
+  .icon {
+    font-size: 40px !important;
+    color: var(--tertiary-color);
+  }
+
+  .title {
+    font-size: 20px;
+    color: var(--tertiary-color);
+    font-weight: bold;
+  }
+  
+}
+
+.content {
+  text-align: justify;
+}
+
+.footer {
+  .icon.chev {
+    font-size: 15px;
+  }
+}

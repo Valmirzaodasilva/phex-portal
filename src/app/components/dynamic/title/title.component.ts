@@ -6,6 +6,12 @@ class DataTitleModel {
   text?: string;
 }
 
+/**
+ * @DOCUMENTATION
+ * Requisitos: title, text
+ * Obs: atualize o ComponentTypeEnum 
+ */
+
 @Component({
   selector: 'app-title',
   templateUrl: './title.component.html',

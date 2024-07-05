@@ -16,6 +16,6 @@ ul {
 
 .navbar .nav-link:hover,
 .nav-link.active {
-  color: $nav-link-hover !important;
+  color: var(--nav-link-hover) !important;
   border-bottom: 2px solid #ed1c24;
 }
