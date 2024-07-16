@@ -7,6 +7,10 @@ import {
 class DataHeroModel {
   title: string;
   carousel: Array<CarouselData>;
+  // TODO: corrigir esse modelo 
+  // title?: string;
+  // subtitle?: string;
+  // url: string;
 }
 
 /**

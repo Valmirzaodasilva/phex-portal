@@ -1,20 +1,9 @@
 import { ComponentTypeEnum } from '../../enums/component-type-enum.enum';
 
-export class DataComponentModel {
-  url?: string;
-  text?: string;
+export class DynamicPageModel {
   title?: string;
   subtitle?: string;
-  sizeMobile?: number;
-  sizeTablet?: number;
-  sizeDesktop?: number;
-  images?: Array<string>;
-  carousel?: Array<CarouselData>;
-  items?: Array<{
-    title: string;
-    subtitle: string;
-    image: string;
-  }>;
+  components?: Array<DynamicComponentModel>;
 }
 
 export class DynamicComponentModel {
@@ -22,10 +11,20 @@ export class DynamicComponentModel {
   data: Array<DataComponentModel>;
 }
 
-export class DynamicPageModel {
+export class DataComponentModel {
+  icon?: string;
+  url?: string;
+  text?: string;
   title?: string;
   subtitle?: string;
-  components?: Array<DynamicComponentModel>;
+  buttonText?: string;
+  buttonLink?: string;
+  sizeIcon?: string;
+  sizeMobile?: number;
+  sizeTablet?: number;
+  sizeDesktop?: number;
+  images?: Array<string>;
+  carousel?: Array<CarouselData>;
 }
 
 export class CarouselData {
@@ -33,3 +32,17 @@ export class CarouselData {
   subtitle?: string;
   url: string;
 }
+
+// export class ItemDataComponentModel {
+//   title?: string;
+//   text?: string;
+//   subtitle?: string;
+//   icon?: string;
+//   image?: string;
+//   buttonText?: string;
+//   buttonLink?: string;
+//   sizeIcon?: string;
+//   sizeMobile?: string;
+//   sizeTablet?: string;
+//   sizeDesktop?: string;
+// }

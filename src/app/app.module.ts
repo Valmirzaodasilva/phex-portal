@@ -17,6 +17,7 @@ import { MapComponent } from './components/dynamic/map/map.component';
 import { DynamicComponent } from './components/dynamic/dynamic.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FaIconDirective } from './shared/directives/fa-icon.directive';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,13 @@ import { FaIconDirective } from './shared/directives/fa-icon.directive';
     MapComponent,
     DynamicComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    FontAwesomeModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
