@@ -18,6 +18,8 @@ import { DynamicComponent } from './components/dynamic/dynamic.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FaIconDirective } from './shared/directives/fa-icon.directive';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { BrazilMapComponent } from './components/brazil-map/brazil-map.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     TextComponent,
     MapComponent,
     DynamicComponent,
+    BrazilMapComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,9 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     HttpClientModule,
     FontAwesomeModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
