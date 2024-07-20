@@ -1,0 +1,24 @@
+.hover-effect {
+  transition: ease-in 0.1s;
+  transform: scale(1);
+}
+
+.hover-effect {
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.water-mask-light {
+  background: url('../assets/imgs/bg/water-mask-light.png');
+  background-size: auto;
+  background-position: left;
+  background-repeat: repeat;
+}
+
+.water-mask-dark {
+  background: url('../assets/imgs/bg/water-mask-dark.png');
+  background-size: auto;
+  background-position: left;
+  background-repeat: repeat;
+}

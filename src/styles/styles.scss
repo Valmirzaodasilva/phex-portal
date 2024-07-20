@@ -1,34 +1,25 @@
-$primary: #ef3d36;
-$secondary: #0b4076;
-$tertiary: #6d6e70;
-$color: white;
-
-:root {
-  --primary-color: #ef3d36;
-  --secondary-color: #0b4076;
-  --tertiary-color: #6d6e70;
-
-  --button-primary-text-color: #ffffff;
-  --bs-btn-color: white !important;
-
-  --nav-link-hover: #636464;
-  --background-secondary: #c9c9c9;
-  --bs-body-bg: #ebe9e8;
-}
-
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 @import "bootstrap/scss/bootstrap";
 
-@import "custom-styles.scss";
+@import "custom-styles";
+@import "colors";
+@import "fonts";
 
 html,
 body {
-  background-color: var(--bs-body-bg);
+  height: 100vh;
+  width: 100vw;
   overflow-x: hidden;
 }
 
-.btn-primary {
-  --bs-btn-color: #fff;
-  --bs-btn-hover-color: #fff;
+#addon-wrapping {
+  display: flex;
+  justify-content: center;
+  min-width: 50px;
+}
+
+.divider {
+  border-top: 1px solid var(--primary-light-color);
+  margin: 5px 0;
 }
