@@ -4,38 +4,31 @@ import {
   DataComponentModel,
 } from 'src/app/shared/models/dynamic-page-models/dynamic-page.model';
 
-class DataHeroModel {
+class DataBannerModel {
   title: string;
-  carousel: Array<CarouselData>;
-  // TODO: corrigir esse modelo 
-  // title?: string;
-  // subtitle?: string;
-  // url: string;
+  subtitle: string;
+  text_color: string;
+  font_size: number;
+  url: string;
+  image: string;
+  // dynamic_data_component_id
 }
 
-/**
- * @DOCUMENTATION
- * Requisitos: title, carousel (array de objetos com url obrigatória mais title, text opcional)
- * Obs: atualize o ComponentTypeEnum 
- */
-
 @Component({
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss'],
+  selector: 'app-banner',
+  templateUrl: './banner.component.html',
+  styleUrls: ['./banner.component.scss'],
 })
-export class HeroComponent implements OnInit, OnDestroy {
+export class BannerComponent implements OnInit, OnDestroy {
   @Input() data: DataComponentModel;
 
-  dataDisplay: DataHeroModel;
+  dataDisplay: Array<DataBannerModel>;
   sliderNumber = 0;
 
   timeSliderInternal: any;
 
-  private FIRST_INDEX = 0;
-
   ngOnInit(): void {
-    this.dataDisplay = this.data[this.FIRST_INDEX];
+    this.dataDisplay = this.data as Array<DataBannerModel>;
     this.initTimerSlider();
   }
 
@@ -51,7 +44,7 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   nextSlide(): void {
     clearInterval(this.timeSliderInternal);
-    this.sliderNumber < this.dataDisplay?.carousel?.length - 1
+    this.sliderNumber < this.dataDisplay?.length - 1
       ? this.sliderNumber++
       : (this.sliderNumber = 0);
     this.initTimerSlider();
@@ -61,15 +54,11 @@ export class HeroComponent implements OnInit, OnDestroy {
     clearInterval(this.timeSliderInternal);
     this.sliderNumber > 0
       ? this.sliderNumber--
-      : (this.sliderNumber = this.dataDisplay?.carousel?.length - 1);
+      : (this.sliderNumber = this.dataDisplay?.length - 1);
     this.initTimerSlider();
   }
 
-  getUrlAssets(url: string): string {
-    return `assets/imgs/${url}`;
-  }
-
   get isMultipleCarouselImages(): boolean {
-    return this.dataDisplay?.carousel?.length > 1;
+    return this.dataDisplay?.length > 1;
   }
 }

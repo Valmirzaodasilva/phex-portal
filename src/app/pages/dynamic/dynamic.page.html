@@ -1,5 +1,5 @@
-<h2 class="text-center">{{ dynamicPageData.title }}</h2>
-
-<div *ngFor="let component of dynamicPageData.components">
-  <app-dynamic-component [component]="component"></app-dynamic-component>
+<div *ngIf="dynamicPageData">
+  <div *ngFor="let component of dynamicPageData.dynamic_components">
+    <app-dynamic-component [component]="component"></app-dynamic-component>
+  </div>
 </div>

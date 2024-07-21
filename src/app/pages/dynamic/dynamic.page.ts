@@ -18,7 +18,7 @@ export class DynamicPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dynamicPageService: DynamicPageService,
-    private headerService: HeaderService,
+    private headerService: HeaderService
   ) {}
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class DynamicPage implements OnInit {
       this.dynamicPageService
         .getDynamicPageData(this.data?.id.toString())
         .subscribe((data) => {
-          this.dynamicPageData = data;
+          this.dynamicPageData = data.response[0];
           this.headerService.setMenuActive(this.data?.id.toString());
         });
     } catch (error) {

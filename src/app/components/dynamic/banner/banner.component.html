@@ -2,20 +2,12 @@
   <div class="carousel-inner h-100">
     <div
       class="carousel-item h-100"
-      *ngFor="let carouselData of dataDisplay.carousel; let index = index"
+      *ngFor="let carouselData of dataDisplay; let index = index"
       [class.active]="index === sliderNumber"
     >
-      <img
-        [src]="getUrlAssets(carouselData.url)"
-        class="d-block w-100 h-100"
-        alt="..."
-      />
-      <div
-        *ngIf="carouselData.title || carouselData.subtitle"
-        class="carousel-caption d-none d-md-block"
-      >
-        <h5 *ngIf="carouselData.title">{{ carouselData.title }}</h5>
-        <p *ngIf="carouselData.subtitle">{{ carouselData.title }}</p>
+      <img [src]="carouselData.image" class="d-block w-100 h-100" alt="..." />
+      <div *ngIf="carouselData.text" class="carousel-caption d-none d-md-block">
+        <h5>{{ carouselData.text }}</h5>
       </div>
     </div>
   </div>

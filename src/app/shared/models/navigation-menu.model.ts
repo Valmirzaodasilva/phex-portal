@@ -1,5 +1,6 @@
 export class NavigationMenuModel {
-  id: string;
+  id: number;
   name: string;
   url: string;
+  dynamic_page_id: number;
 }

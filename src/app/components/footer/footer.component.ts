@@ -16,7 +16,6 @@ export class FooterComponent {
   constructor(private footerService: FooterService) {
     this.subscriptions.add(
       this.footerService.getFooterData().subscribe((data) => {
-        console.log('footer data', data);
         this.dataFooterDisplay = data;
       })
     );

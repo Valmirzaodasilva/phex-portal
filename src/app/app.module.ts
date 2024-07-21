@@ -9,7 +9,6 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DynamicPage } from './pages/dynamic/dynamic.page';
 import { FooterComponent } from './components/footer/footer.component';
-import { HeroComponent } from './components/dynamic/hero/hero.component';
 import { ServiceItemComponent } from './components/dynamic/service-item/service-item.component';
 import { TitleComponent } from './components/dynamic/title/title.component';
 import { TextComponent } from './components/dynamic/text/text.component';
@@ -20,23 +19,26 @@ import { FaIconDirective } from './shared/directives/fa-icon.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { BrazilMapComponent } from './components/brazil-map/brazil-map.component';
+import { NotFoundPage } from './pages/not-found/not-found.page';
+import { BannerComponent } from './components/dynamic/banner/banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FaIconDirective,
     HomePage,
+    NotFoundPage,
     LoadingComponent,
     NavbarComponent,
     DynamicPage,
     FooterComponent,
-    HeroComponent,
     ServiceItemComponent,
     TitleComponent,
     TextComponent,
     MapComponent,
     DynamicComponent,
     BrazilMapComponent,
+    BannerComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import { BrazilMapComponent } from './components/brazil-map/brazil-map.component
     HttpClientModule,
     FontAwesomeModule,
     NgxEchartsModule.forRoot({
-      echarts: () => import('echarts')
+      echarts: () => import('echarts'),
     }),
   ],
   providers: [],

@@ -18,7 +18,6 @@ export class HeaderService {
 
   constructor(private http: HttpClient) {
     this.getNavigationMenu().subscribe((data) => {
-      console.log('data 123901283', data)
       this.menuListSubject.next(data.response);
     });
   }
@@ -27,40 +26,39 @@ export class HeaderService {
     this.menuActiveSubject.next(idMenu);
   }
 
-  //   private getNavigationMenu(): Observable<
-  //   ResponseModel<NavigationMenuModel[]>
-  // > {
-  //   return this.http.get<ResponseModel<NavigationMenuModel[]>>(
-  //     `${this.apiUrl}`
-  //   );
-  // }
-  // }
-
-  getNavigationMenu(): Observable<ResponseModel<NavigationMenuModel[]>> {
-    return of({
-      message: 'Menu list fetched successfully',
-      response: [
-        {
-          id: '1',
-          name: 'Sobre a Phex',
-          url: '/home',
-        },
-        {
-          id: '2',
-          name: 'Serviços',
-          url: '/services',
-        },
-        {
-          id: '3',
-          name: 'Abrangência',
-          url: '/coverage',
-        },
-        {
-          id: '4',
-          name: 'Contact',
-          url: '/contact',
-        },
-      ],
-    });
+  private getNavigationMenu(): Observable<
+    ResponseModel<NavigationMenuModel[]>
+  > {
+    return this.http.get<ResponseModel<NavigationMenuModel[]>>(
+      `${this.apiUrl}`
+    );
   }
 }
+
+// getNavigationMenu(): Observable<ResponseModel<NavigationMenuModel[]>> {
+//   return of({
+//     message: 'Menu list fetched successfully',
+//     response: [
+//       {
+//         id: '1',
+//         name: 'Sobre a Phex',
+//         url: '/home',
+//       },
+//       {
+//         id: '2',
+//         name: 'Serviços',
+//         url: '/services',
+//       },
+//       {
+//         id: '3',
+//         name: 'Abrangência',
+//         url: '/coverage',
+//       },
+//       {
+//         id: '4',
+//         name: 'Contact',
+//         url: '/contact',
+//       },
+//     ],
+//   });
+// }

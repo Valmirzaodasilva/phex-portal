@@ -1,15 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ALIGN_ENUM } from 'src/app/shared/enums/align-enum.enum';
 import { DataComponentModel } from 'src/app/shared/models/dynamic-page-models/dynamic-page.model';
 
 class DataTitleModel {
-  title?: string;
-  text?: string;
+  text: string;
+  text_color?: string;
+  alignment?: ALIGN_ENUM;
+  size_mobile?: number;
+  size_tablet?: number;
+  size_desktop?: number;
+  dynamic_component_id?: number;
 }
 
 /**
  * @DOCUMENTATION
- * Requisitos: title, text
- * Obs: atualize o ComponentTypeEnum 
+ * Requisitos: text
+ * Obs: atualize o ComponentTypeEnum
  */
 
 @Component({
@@ -23,6 +29,7 @@ export class TitleComponent implements OnInit {
   dataDisplay: DataTitleModel;
 
   ngOnInit(): void {
+    console.log('this.data TITLE', this.data)
     this.dataDisplay = this.data[0];
   }
 }

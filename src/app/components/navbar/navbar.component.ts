@@ -21,7 +21,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.headerService.menuList$.subscribe((navigationMenu) => {
         this.menus = navigationMenu;
-        console.log('navigationMenu', navigationMenu)
       })
     );
 

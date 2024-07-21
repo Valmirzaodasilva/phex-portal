@@ -1,14 +1,14 @@
-import { ComponentTypeEnum } from '../../enums/component-type-enum.enum';
+import { COMPONENT_TYPE_ENUM } from '../../enums/component-type-enum.enum';
 
 export class DynamicPageModel {
   title?: string;
   subtitle?: string;
-  components?: Array<DynamicComponentModel>;
+  dynamic_components?: Array<DynamicComponentModel>;
 }
 
 export class DynamicComponentModel {
-  type: ComponentTypeEnum;
-  data: Array<DataComponentModel>;
+  type: COMPONENT_TYPE_ENUM;
+  component_data: Array<DataComponentModel>;
 }
 
 export class DataComponentModel {

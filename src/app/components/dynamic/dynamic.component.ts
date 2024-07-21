@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ComponentTypeEnum } from 'src/app/shared/enums/component-type-enum.enum';
+import { COMPONENT_TYPE_ENUM } from 'src/app/shared/enums/component-type-enum.enum';
 import { DynamicComponentModel } from 'src/app/shared/models/dynamic-page-models/dynamic-page.model';
 
 @Component({
@@ -13,30 +13,34 @@ export class DynamicComponent implements OnInit {
   componentData = [];
 
   ngOnInit(): void {
-    this.componentData = this.component.data;
+    this.componentData = this.component.component_data;
   }
 
   get isComponentTitle(): boolean {
-    return this.component.type === ComponentTypeEnum.TITLE;
+    return this.component.type === COMPONENT_TYPE_ENUM.TITLE;
   }
 
   get isComponentText(): boolean {
-    return this.component.type === ComponentTypeEnum.TEXT;
-  }
-
-  get isComponentHero(): boolean {
-    return this.component.type === ComponentTypeEnum.HERO;
-  }
-
-  get isComponentImage(): boolean {
-    return this.component.type === ComponentTypeEnum.IMAGE;
+    return this.component.type === COMPONENT_TYPE_ENUM.TEXT;
   }
 
   get isComponentButton(): boolean {
-    return this.component.type === ComponentTypeEnum.BUTTON;
+    return this.component.type === COMPONENT_TYPE_ENUM.BUTTON;
   }
 
-  get isComponentServiceItem(): boolean {
-    return this.component.type === ComponentTypeEnum.SERVICE_ITEM;
+  get isComponentPrinciplesCard(): boolean {
+    return this.component.type === COMPONENT_TYPE_ENUM.PINCIPLES_CARD;
+  }
+
+  get isComponentInformationCard(): boolean {
+    return this.component.type === COMPONENT_TYPE_ENUM.INFORMATION_CARD;
+  }
+
+  get isComponentServiceCard(): boolean {
+    return this.component.type === COMPONENT_TYPE_ENUM.SERVICE_CARD;
+  }
+
+  get isComponentBanner(): boolean {
+    return this.component.type === COMPONENT_TYPE_ENUM.BANNER;
   }
 }
