@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HomePage } from './pages/home/home.page';
 import { LoadingComponent } from './components/loading/loading.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DynamicPage } from './pages/dynamic/dynamic.page';
@@ -26,7 +25,6 @@ import { BannerComponent } from './components/dynamic/banner/banner.component';
   declarations: [
     AppComponent,
     FaIconDirective,
-    HomePage,
     NotFoundPage,
     LoadingComponent,
     NavbarComponent,

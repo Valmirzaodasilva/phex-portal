@@ -1,6 +1,5 @@
 import { NgModule, OnDestroy } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { HomePage } from './pages/home/home.page';
 import { LoadingService } from './shared/services/loading.service';
 import { HeaderService } from './shared/services/header.service';
 import { Subscription } from 'rxjs';
@@ -10,15 +9,20 @@ import { NotFoundPage } from './pages/not-found/not-found.page';
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
-    data: { menu: { id: '1', name: 'Início', url: '/inicio' } },
+    component: DynamicPage,
+    data: { menu: { id: '1', name: 'Início', url: 'inicio' } },
   },
   {
     path: '**',
     component: NotFoundPage,
-    data: { menu: { id: '1', name: 'Início', url: '/inicio' } },
+    data: {
+      menu: {
+        id: '0',
+        name: 'NotFound',
+        url: 'not-found',
+      },
+    },
   },
-  { path: 'teste', component: DynamicPage },
 ];
 
 @NgModule({
@@ -43,6 +47,7 @@ export class AppRoutingModule implements OnDestroy {
           });
         });
         this.router.resetConfig(routes);
+        this.router.navigateByUrl(this.router.url);
       })
     );
   }

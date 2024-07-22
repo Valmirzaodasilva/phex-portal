@@ -26,9 +26,11 @@ $color: white;
 
   // TEXTS
   --bs-body-font-family: "Varela Round", sans-serif;
+  // --bs-body-font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
   --text-primary: #6f93cd;
   --text-dark: #2d4b7b;
-  --text-light: #d1e2ff;
+  --text-light: #A4A4A4;
+  --text-super-light: #d1e2ff;
   --text-yellow: #f5ff7d;
   --text-secondary: #ef4b43;
 
@@ -101,15 +103,20 @@ $color: white;
 
 // TEXTS
 .text-primary {
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
 }
 
 .text-dark {
-  color: var(--text-dark);
+  color: var(--text-dark) !important;
 }
 
 .text-light {
-  color: var(--text-light);
+  color: var(--text-light) !important;
+  font-weight: normal;
+}
+
+.text-super-light {
+  color: var(--text-super-light) !important;
 }
 
 .text-yellow {
