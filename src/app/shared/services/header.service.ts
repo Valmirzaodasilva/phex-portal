@@ -3,12 +3,13 @@ import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { NavigationMenuModel } from '../models/navigation-menu.model';
 import { HttpClient } from '@angular/common/http'; // Import the 'HttpClient' module
 import { ResponseModel } from '../models/reponse.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeaderService {
-  private apiUrl = `http://localhost:4201/api/menu-portal-list`;
+  private apiUrl = `${environment.apiUrl}/menu-portal-list`;
 
   private menuActiveSubject = new BehaviorSubject<string>('1');
   public menuActive$ = this.menuActiveSubject.asObservable();

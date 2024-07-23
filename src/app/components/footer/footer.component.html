@@ -1,9 +1,82 @@
-<div class="footer text-bg-tertiary text-white text-center">
-  <div class="content p-2">
-    <p>{{ dataFooterDisplay.text }}</p>
-    <p>{{ dataFooterDisplay.phone }}</p>
+<div
+  class="footer text-bg-tertiary water-mask-dark bg-primary-dark text-white text-center"
+>
+  <div class="container p-2">
+    <div class="row">
+      <div #contact_information class="col pt-3">
+        <div
+          class="mb-3"
+          *ngFor="
+            let item of dataFooterDisplay?.contact_information;
+            let index = index
+          "
+        >
+          <div class="d-flex justify-content-start gap-2">
+            <fa-icon
+              class="icon-danger text-red"
+              [icon]="contact_icons[index] || faIconNone"
+            ></fa-icon>
+            <span>{{ item.text }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div #contact_whatsapp class="col pt-3">
+        <div
+          class="mb-3"
+          *ngFor="let item of dataFooterDisplay?.contact_whatsapp"
+        >
+          <p class="text-wpp fs-5">{{ item.text }}</p>
+          <a
+            type="button"
+            class="button-whatsapp m-auto d-flex justify-content-center align-items-center gap-2"
+            [href]="item.link"
+          >
+            <span class="fs-4 ps-3">ENTRAR EM CONTATO</span>
+            <span class="icon-wpp"></span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="copyright text-center text-bg-primary text-white p-2">
-    {{ dataFooterDisplay.copyright }}
+
+  <div class="bg-primary-heavy">
+    <div class="container">
+      <div class="row d-flex align-items-center pt-2 pb-2">
+        <div #copyright class="col text-start">
+          <span class="fs-6">
+            <span class="text-secondary fw-bold">{{
+              dataFooterDisplay?.copyright[0]?.company
+            }}</span>
+            <span class="ps-2 fw-bold">{{
+              dataFooterDisplay?.copyright[0]?.year
+            }}</span>
+            <span class="ps-1">©</span>
+            <span class="ps-1">{{
+              dataFooterDisplay?.copyright[0]?.text
+            }}</span>
+          </span>
+        </div>
+
+        <div #social_medias class="col">
+          <div class="d-flex justify-content-end gap-2">
+            <a
+              *ngFor="
+                let item of dataFooterDisplay?.social_media;
+                let index = index
+              "
+              [href]="item.link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <fa-icon
+                class="icon-danger text-secondary fs-4"
+                [icon]="social_icons[index] || faIconNone"
+              ></fa-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

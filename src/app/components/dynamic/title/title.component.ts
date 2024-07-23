@@ -29,7 +29,6 @@ export class TitleComponent implements OnInit {
   dataDisplay: DataTitleModel;
 
   ngOnInit(): void {
-    console.log('this.data TITLE', this.data)
     this.dataDisplay = this.data[0];
   }
 }

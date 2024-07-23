@@ -14,7 +14,6 @@ import { TextComponent } from './components/dynamic/text/text.component';
 import { MapComponent } from './components/dynamic/map/map.component';
 import { DynamicComponent } from './components/dynamic/dynamic.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FaIconDirective } from './shared/directives/fa-icon.directive';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { BrazilMapComponent } from './components/brazil-map/brazil-map.component';
@@ -24,7 +23,6 @@ import { BannerComponent } from './components/dynamic/banner/banner.component';
 @NgModule({
   declarations: [
     AppComponent,
-    FaIconDirective,
     NotFoundPage,
     LoadingComponent,
     NavbarComponent,

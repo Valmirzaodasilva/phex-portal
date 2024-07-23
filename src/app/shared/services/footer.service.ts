@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { FooterModel } from '../models/footer.model';
-import { mockDefault } from '../mocks/footer.mock';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { ResponseModel } from '../models/reponse.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FooterService {
-  constructor() {}
+  private apiUrl = `${environment.apiUrl}/portal-footer`;
 
-  getFooterData(): Observable<FooterModel> {
-    // TODO: criar requisição para buscar a página dinâmica
-    const returnData: FooterModel = mockDefault;
-    return of(returnData);
+  constructor(private http: HttpClient) {}
+
+  getFooterData(): Observable<ResponseModel<FooterModel>> {
+    return this.http.get<ResponseModel<FooterModel>>(`${this.apiUrl}`);
   }
 }

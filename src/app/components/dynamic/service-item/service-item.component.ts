@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataComponentModel } from 'src/app/shared/models/dynamic-page-models/dynamic-page.model';
-import { FontawesomeIconsService } from 'src/app/shared/services/fontawesome-icons.service';
 
 class DataServiceItemModel {
   title?: string;
@@ -29,8 +28,6 @@ export class ServiceItemComponent implements OnInit {
   @Input() data: DataComponentModel;
 
   dataDisplay: Array<DataServiceItemModel>;
-
-  constructor(private fontawesomeIconsService: FontawesomeIconsService) {}
 
   ngOnInit(): void {
     this.dataDisplay = this.data as Array<DataServiceItemModel>;

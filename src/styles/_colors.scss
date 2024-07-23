@@ -6,6 +6,7 @@ $color: white;
 :root {
   // COLORS
   --primary-color: #2d4b7b;
+  --primary-heavy-color: #0b2144;
   --primary-dark-color: #132c55;
   --primary-light-color: #6f93cd;
   --primary-clear-color: #d1e2ff;
@@ -29,7 +30,7 @@ $color: white;
   // --bs-body-font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
   --text-primary: #6f93cd;
   --text-dark: #2d4b7b;
-  --text-light: #A4A4A4;
+  --text-light: #a4a4a4;
   --text-super-light: #d1e2ff;
   --text-yellow: #f5ff7d;
   --text-secondary: #ef4b43;
@@ -44,39 +45,43 @@ $color: white;
 
 // BACKGROUND
 .bg-primary {
-  background: var(--primary-color);
+  background-color: var(--primary-color);
+}
+
+.bg-primary-heavy {
+  background-color: var(--primary-heavy-color);
 }
 
 .bg-primary-dark {
-  background: var(--primary-dark-color);
+  background-color: var(--primary-dark-color);
 }
 
 .bg-primary-light {
-  background: var(--primary-light-color);
+  background-color: var(--primary-light-color);
 }
 
 .bg-primary-clear {
-  background: var(--primary-clear-color);
+  background-color: var(--primary-clear-color);
 }
 
 .bg-secondary {
-  background: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .bg-secondary-dark {
-  background: var(--secondary-dark-color);
+  background-color: var(--secondary-dark-color);
 }
 
 .bg-secondary-light {
-  background: var(--secondary-light-color);
+  background-color: var(--secondary-light-color);
 }
 
 .bg-secondary-clear {
-  background: var(--secondary-clear-color);
+  background-color: var(--secondary-clear-color);
 }
 
 .bg-tertiary {
-  background: var(--tertiary-color);
+  background-color: var(--tertiary-color);
 }
 
 // TEXTS
@@ -112,7 +117,7 @@ $color: white;
 
 .text-light {
   color: var(--text-light) !important;
-  font-weight: normal;
+  font-weight: no;
 }
 
 .text-super-light {
