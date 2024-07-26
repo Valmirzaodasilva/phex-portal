@@ -26,17 +26,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule implements OnDestroy {
   private subscriptions = new Subscription();
 
-  constructor(
-    private loadingService: LoadingService,
-    private router: Router,
-    private headerSerivce: HeaderService
-  ) {
+  constructor(private loadingService: LoadingService, private router: Router, private headerSerivce: HeaderService) {
     this.subscriptions.add(
       this.headerSerivce.menuList$.subscribe((menus) => {
         menus.forEach((menu) => {

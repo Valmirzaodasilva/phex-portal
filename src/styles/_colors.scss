@@ -35,6 +35,11 @@ $color: white;
   --text-yellow: #f5ff7d;
   --text-secondary: #ef4b43;
 
+  // INPUTS
+  --input-color-dark: #6f93cd;
+  --input-color-primary: #e8f0fe;
+  --input-color-light: #f8f9fa;
+
   // BUTTON
   --button-primary-text-color: #d1e2ff;
   --button-secondary-text-color: #d1e2ff;
@@ -101,9 +106,20 @@ $color: white;
 }
 
 .btn-secondary {
-  border: none;
   color: var(--button-secondary-text-color);
   background: var(--secondary-color);
+}
+
+.btn-primary-default {
+  border: none;
+  color: var(--button-primary-text-color);
+  background: var(--primary-color);
+}
+
+.btn-table-action {
+  border: 1px solid var(--primary-light-color) !important;
+  color: var(--primary-color) !important;
+  background: transparent;
 }
 
 // TEXTS
@@ -132,19 +148,18 @@ $color: white;
   color: var(--text-secondary) !important;
 }
 
-// CARD
-.card {
-  background: var(--primary-color);
-  border: none;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+.table-light {
+  --bs-table-color: #6f93cd;
+  --bs-table-bg: var(--primary-clear-color);
+  --bs-table-striped-color: #6f93cd;
+  --bs-table-striped-bg: #e8f0fe;
 }
 
-// INPUTS
+// // INPUTS
 .form-control {
   // background-color: white;
-  background-color: var(--background-secondary);
+  border: none;
+  background-color: var(--input-color-primary);
 }
 
 // ICON

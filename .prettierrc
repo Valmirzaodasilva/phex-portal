@@ -1,0 +1,6 @@
+{
+  "printWidth": 120,
+  "importOrder": ["^@/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
