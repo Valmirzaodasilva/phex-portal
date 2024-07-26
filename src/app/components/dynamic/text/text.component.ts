@@ -3,10 +3,8 @@ import { DataComponentModel } from 'src/app/shared/models/dynamic-page-models/dy
 
 class DataTextModel {
   text: string;
-  text_color: string;
-  size_mobile: number;
-  size_tablet: number;
-  size_desktop: number;
+  textColor: string;
+  screenSize: number;
 }
 
 @Component({

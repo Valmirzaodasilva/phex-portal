@@ -7,11 +7,11 @@ import {
 class DataBannerModel {
   title: string;
   subtitle: string;
-  text_color: string;
-  font_size: number;
+  textColor: string;
+  fontSize: number;
   url: string;
   image: string;
-  // dynamic_data_component_id
+  // idDynamicDataComponent
 }
 
 @Component({

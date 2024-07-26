@@ -1,6 +1,6 @@
 export class FooterModel {
-  contact_information: Array<ContactInformationModel>;
-  contact_whatsapp: Array<ContactWhatsappModel>;
+  contactInformation: Array<ContactInformationModel>;
+  contactWhatsapp: Array<ContactWhatsappModel>;
   social_media: Array<SocialMediasModel>;
   copyright: Array<CopyrightModel>;
 }

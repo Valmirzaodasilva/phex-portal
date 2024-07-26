@@ -3,12 +3,12 @@ import { COMPONENT_TYPE_ENUM } from '../../enums/component-type-enum.enum';
 export class DynamicPageModel {
   title?: string;
   subtitle?: string;
-  dynamic_components?: Array<DynamicComponentModel>;
+  dynamicComponents?: Array<DynamicComponentModel>;
 }
 
 export class DynamicComponentModel {
   type: COMPONENT_TYPE_ENUM;
-  component_data: Array<DataComponentModel>;
+  componenData: Array<DataComponentModel>;
 }
 
 export class DataComponentModel {

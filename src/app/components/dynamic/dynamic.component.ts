@@ -13,7 +13,7 @@ export class DynamicComponent implements OnInit {
   componentData = [];
 
   ngOnInit(): void {
-    this.componentData = this.component.component_data;
+    this.componentData = this.component.componenData;
   }
 
   get isComponentTitle(): boolean {

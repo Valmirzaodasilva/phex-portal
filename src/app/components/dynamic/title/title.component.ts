@@ -4,12 +4,10 @@ import { DataComponentModel } from 'src/app/shared/models/dynamic-page-models/dy
 
 class DataTitleModel {
   text: string;
-  text_color?: string;
+  textColor?: string;
   alignment?: ALIGN_ENUM;
-  size_mobile?: number;
-  size_tablet?: number;
-  size_desktop?: number;
-  dynamic_component_id?: number;
+  screenSize?: number;
+  idDynamicComponent?: number;
 }
 
 /**

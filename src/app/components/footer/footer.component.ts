@@ -37,7 +37,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
 
   private getIconLoadedUtils(): void {
-    this.dataFooterDisplay.contact_information.forEach(async (element) => {
+    this.dataFooterDisplay.contactInformation.forEach(async (element) => {
       this.contact_icons.push(
         await this.iconService.getFontAwesomeIcon(element.icon)
       );
