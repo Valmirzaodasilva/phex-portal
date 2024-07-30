@@ -29,7 +29,7 @@ export class DynamicComponent implements OnInit {
   }
 
   get isComponentPrinciplesCard(): boolean {
-    return this.component.type === COMPONENT_TYPE_ENUM.PINCIPLES_CARD;
+    return this.component.type === COMPONENT_TYPE_ENUM.PRINCIPLES_CARD;
   }
 
   get isComponentInformationCard(): boolean {
