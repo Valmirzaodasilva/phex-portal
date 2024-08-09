@@ -1,6 +1,6 @@
 $primary: #0b4076;
 $secondary: #ef4b43;
-$tertiary: #7d7f82;
+$tertiary: #ffc700;
 $color: white;
 
 :root {
@@ -16,18 +16,16 @@ $color: white;
   --secondary-light-color: #ff706b;
   --secondary-clear-color: #ffa598;
 
-  --tertiary-color: #7d7f82;
+  --tertiary-color: #ffc700;
 
   // BACKGROUND
   --background-primary: #f5f9ff;
   --background-secondary: #e2e2e2;
-  --background-tertiary: #7d7f82;
+  --background-tertiary: #ffc700;
 
   --bs-body-bg: #f5f9ff;
 
   // TEXTS
-  --bs-body-font-family: "Varela Round", sans-serif;
-  // --bs-body-font-family: 'Poppins',Helvetica,Arial,Lucida,sans-serif;
   --text-primary: #6f93cd;
   --text-dark: #2d4b7b;
   --text-light: #a4a4a4;
@@ -46,6 +44,25 @@ $color: white;
   --button-action-text-color: #f5ff7d;
   --bs-btn-color: #d1e2ff;
   --bs-btn-hover-color: #d1e2ff;
+
+  // DETAIL
+  --detail-dark: linear-gradient(90deg, #ef4b43 0%, #850600 50%, #ef4b43 100%);
+  --detail-light: linear-gradient(90deg, #ffa598 0%, #ff706b 50%, #ffa598 100%);
+  --detail-dark-vertical: linear-gradient(0deg, #ef4b43 0%, #850600 50%, #ef4b43 100%);
+  --detail-light-vertical: linear-gradient(0deg, #ffa598 0%, #ff706b 50%, #ffa598 100%);
+}
+
+// COLORS
+.primary-color {
+  color: var(--primary-color);
+}
+
+.secondary-color {
+  color: var(--secondary-color);
+}
+
+.tertiary-color {
+  color: var(--tertiary-color);
 }
 
 // BACKGROUND
@@ -54,23 +71,23 @@ $color: white;
 }
 
 .bg-primary-heavy {
-  background-color: var(--primary-heavy-color);
+  background-color: var(--primary-heavy-color) !important;
 }
 
 .bg-primary-dark {
-  background-color: var(--primary-dark-color);
+  background-color: var(--primary-dark-color) !important;
 }
 
 .bg-primary-light {
-  background-color: var(--primary-light-color);
+  background-color: var(--primary-light-color) !important;
 }
 
 .bg-primary-clear {
-  background-color: var(--primary-clear-color);
+  background-color: var(--primary-clear-color) !important;
 }
 
 .bg-secondary {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color) !important;
 }
 
 .bg-secondary-dark {
@@ -102,7 +119,7 @@ $color: white;
 .btn-primary {
   border: none;
   color: var(--button-primary-text-color);
-  background: linear-gradient(90deg, #2d4b7b 0%, #ef4b43 100%);
+  background: var(--primary-color);
 }
 
 .btn-secondary {
@@ -110,10 +127,19 @@ $color: white;
   background: var(--secondary-color);
 }
 
+.btn-tertiary {
+  color: var(--button-action-text-color);
+  background: var(--tertiary-color);
+}
+
 .btn-primary-default {
   border: none;
   color: var(--button-primary-text-color);
-  background: var(--primary-color);
+  background: linear-gradient(90deg, #2d4b7b 0%, #ef4b43 100%);
+}
+
+.btn-primary-default:hover {
+  background: linear-gradient(90deg, #4469a5 0%, #e25a53 100%);
 }
 
 .btn-table-action {
@@ -133,7 +159,6 @@ $color: white;
 
 .text-light {
   color: var(--text-light) !important;
-  font-weight: no;
 }
 
 .text-super-light {
@@ -153,13 +178,6 @@ $color: white;
   --bs-table-bg: var(--primary-clear-color);
   --bs-table-striped-color: #6f93cd;
   --bs-table-striped-bg: #e8f0fe;
-}
-
-// // INPUTS
-.form-control {
-  // background-color: white;
-  border: none;
-  background-color: var(--input-color-primary);
 }
 
 // ICON

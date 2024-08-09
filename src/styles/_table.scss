@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+
+  td {
+    font-weight: 300;
+  }
+}
+
+.btn-table-action {
+  width: 40px;
+  border: 1px solid var(--primary-light-color) !important;
+  border-radius: 5px;
+  color: var(--primary-color) !important;
+  background: transparent;
+}
