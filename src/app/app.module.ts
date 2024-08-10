@@ -8,7 +8,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DynamicPage } from './pages/dynamic/dynamic.page';
 import { FooterComponent } from './components/footer/footer.component';
-import { ServiceItemComponent } from './components/dynamic/service-item/service-item.component';
+import { ServiceCardComponent } from './components/dynamic/service-card/service-card.component';
 import { TitleComponent } from './components/dynamic/title/title.component';
 import { TextComponent } from './components/dynamic/text/text.component';
 import { MapComponent } from './components/dynamic/map/map.component';
@@ -28,7 +28,7 @@ import { BannerComponent } from './components/dynamic/banner/banner.component';
     NavbarComponent,
     DynamicPage,
     FooterComponent,
-    ServiceItemComponent,
+    ServiceCardComponent,
     TitleComponent,
     TextComponent,
     MapComponent,

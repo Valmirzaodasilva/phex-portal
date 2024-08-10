@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataComponentModel } from 'src/app/shared/models/dynamic-page-models/dynamic-page.model';
 
-class DataServiceItemModel {
+class DataServiceCardModel {
   title?: string;
   text?: string;
   icon?: string;
@@ -20,16 +20,16 @@ class DataServiceItemModel {
  */
 
 @Component({
-  selector: 'app-service-item',
-  templateUrl: './service-item.component.html',
-  styleUrls: ['./service-item.component.scss'],
+  selector: 'app-service-card',
+  templateUrl: './service-card.component.html',
+  styleUrls: ['./service-card.component.scss'],
 })
-export class ServiceItemComponent implements OnInit {
+export class ServiceCardComponent implements OnInit {
   @Input() data: DataComponentModel;
 
-  dataDisplay: Array<DataServiceItemModel>;
+  dataDisplay: Array<DataServiceCardModel>;
 
   ngOnInit(): void {
-    this.dataDisplay = this.data as Array<DataServiceItemModel>;
+    this.dataDisplay = this.data as Array<DataServiceCardModel>;
   }
 }

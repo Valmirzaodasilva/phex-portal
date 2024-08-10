@@ -13,11 +13,7 @@ export class DynamicPageService {
 
   constructor(private http: HttpClient) {}
 
-  getDynamicPageData(
-    id: string
-  ): Observable<ResponseModel<DynamicPageModel[]>> {
-    return this.http.get<ResponseModel<DynamicPageModel[]>>(
-      `${this.apiUrl}/${id}`
-    );
+  getDynamicPageData(id: string): Observable<ResponseModel<DynamicPageModel[]>> {
+    return this.http.get<ResponseModel<DynamicPageModel[]>>(`${this.apiUrl}/${id}`);
   }
 }

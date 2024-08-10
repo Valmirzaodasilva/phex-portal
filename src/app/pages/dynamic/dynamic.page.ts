@@ -28,12 +28,10 @@ export class DynamicPage implements OnInit {
 
   private loadPageData(): void {
     try {
-      this.dynamicPageService
-        .getDynamicPageData(this.data?.id.toString())
-        .subscribe((data) => {
-          this.dynamicPageData = data.response[0];
-          this.headerService.setMenuActive(this.data?.id.toString());
-        });
+      this.dynamicPageService.getDynamicPageData(this.data?.id.toString()).subscribe((data) => {
+        this.dynamicPageData = data.response[0];
+        this.headerService.setMenuActive(this.data?.id.toString());
+      });
     } catch (error) {
       console.error('Error loading page data', error);
     }
