@@ -1,23 +1,37 @@
-.header {
-  .icon {
-    font-size: 40px !important;
-    color: var(--tertiary-color);
-  }
-
-  .title {
-    font-size: 20px;
-    color: var(--tertiary-color);
-    font-weight: bold;
-  }
-  
+.card {
+  background-color: white;
+  left: -20px;
 }
 
-.content {
-  text-align: justify;
+.service-image {
+  min-width: 150px !important;
+  height: 100%;
+  background-size: cover;
+}
+.detail-image {
+  position: relative;
 }
 
-.footer {
-  .icon.chev {
-    font-size: 15px;
-  }
+.detail-image::before {
+  position: absolute;
+  content: " ";
+  left: 0;
+  height: 100%;
+  width: 5px;
+  background: var(--detail-light-vertical);
+}
+
+.service-title {
+  color: var(--tertiary-color);
+}
+
+.service-text {
+  color: var(--text-light);
+}
+
+.service-button {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

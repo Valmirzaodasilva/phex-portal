@@ -1,34 +1,17 @@
-<div class="row mb-3 d-flex justify-content-between">
-  <ng-container *ngFor="let serviceItem of data">
-    <div
-      [ngClass]="
-        'col-sm-' +
-        serviceItem.sizeMobile +
-        ' col-lg-' +
-        serviceItem.sizeTablet +
-        ' col-xl-' +
-        serviceItem.sizeDesktop
-      "
-    >
-      <div class="service-item">
-        <div class="header d-flex align-items-center gap-3">
-          <i class="icon" [faIcon]="serviceItem.icon"></i>
-          <div class="title">{{ serviceItem.title }}</div>
-        </div>
-
-        <div class="content mt-2 ms-2">{{ serviceItem.text }}</div>
-
-        <div class="footer mt-2 d-flex justify-content-end">
-          <a
-            class="btn btn-primary-default gap-2"
-            [routerLink]="serviceItem.buttonLink"
-            [queryParams]="serviceItem.queryParams"
-          >
-            <span>{{ serviceItem.buttonText }}</span>
-            <i class="icon chev ms-2" faIcon="faChevronRight"></i>
-          </a>
-        </div>
+<ng-container *ngFor="let data of dataDisplay">
+  <div class="d-flex justify-content-center">
+    <div class="detail-image col-4">
+      <img class="service-image w-100" [src]="getImageUrl(data.images)" alt="" />
+    </div>
+    <div class="card p-4 m-3 me-0 w-100">
+      <div class="d-flex align-items-center">
+        <fa-icon class="service-icon tertiary-color fa-regular me-3 fs-{{ data.iconSize }}" [icon]="faIcon"></fa-icon>
+        <span class="service-title">{{ data.title }}</span>
+      </div>
+      <span class="service-text text-justify mt-3" [ngStyle]="{ color: data.textColor }">{{ data.text }}</span>
+      <div class="w-100 d-flex justify-content-end mt-3">
+        <a href="{{ data.url }}" class="service-button btn btn-secondary">{{ data.nameButton }}</a>
       </div>
     </div>
-  </ng-container>
-</div>
+  </div>
+</ng-container>
