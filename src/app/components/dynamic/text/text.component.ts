@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DataComponentModel } from 'src/app/shared/models/dynamic-page-models/dynamic-page.model';
 
 class DataTextModel {
@@ -12,12 +12,6 @@ class DataTextModel {
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss'],
 })
-export class TextComponent implements OnInit {
+export class TextComponent {
   @Input() data: DataComponentModel;
-
-  dataDisplay: Array<DataTextModel>;
-
-  ngOnInit(): void {
-    this.dataDisplay = this.data as Array<DataTextModel>;
-  }
 }

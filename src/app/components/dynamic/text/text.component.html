@@ -1,5 +1,5 @@
 <div class="row">
-  <ng-container *ngFor="let textData of dataDisplay">
+  <ng-container *ngFor="let textData of data">
     <div [ngClass]="'col-sm-' + textData.screenSize">
       <p class="mt-3 text-justify text-light">{{ textData.text }}</p>
     </div>

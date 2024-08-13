@@ -1,16 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DataComponentModel } from 'src/app/shared/models/dynamic-page-models/dynamic-page.model';
 
 class DataServiceCardModel {
-  title?: string;
-  text?: string;
-  icon?: string;
-  buttonText?: string;
-  buttonLink?: string;
-  sizeIcon?: string;
-  sizeMobile?: string;
-  sizeTablet?: string;
-  sizeDesktop?: string;
+  icon: string;
+  title: string;
+  text: string;
+  textColor: string;
+  nameButton: string;
+  iconSize: number;
+  screenSize: number;
+  images: string[];
 }
 
 /**
@@ -24,12 +23,6 @@ class DataServiceCardModel {
   templateUrl: './service-card.component.html',
   styleUrls: ['./service-card.component.scss'],
 })
-export class ServiceCardComponent implements OnInit {
+export class ServiceCardComponent {
   @Input() data: DataComponentModel;
-
-  dataDisplay: Array<DataServiceCardModel>;
-
-  ngOnInit(): void {
-    this.dataDisplay = this.data as Array<DataServiceCardModel>;
-  }
 }

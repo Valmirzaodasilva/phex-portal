@@ -1,36 +1,13 @@
-<div id="carouselHero" class="custom-container carousel slide">
-  <div class="carousel-inner h-100">
-    <div
-      class="carousel-item h-100"
-      *ngFor="let carouselData of dataDisplay; let index = index"
-      [class.active]="index === sliderNumber"
-    >
-      <img [src]="carouselData.image" class="d-block w-100 h-100" alt="..." />
-      <div *ngIf="carouselData.text" class="carousel-caption d-none d-md-block">
-        <h5>{{ carouselData.text }}</h5>
+<ngb-carousel class="custom-container">
+  <ng-container>
+    <ng-template ngbSlide *ngFor="let image of dataDisplay.images">
+      <div class="picsum-img-wrapper">
+        <img [src]="getImageUrl(image)" class="d-block w-100 h-100" alt="..." />
       </div>
-    </div>
-  </div>
-  <ng-container *ngIf="isMultipleCarouselImages">
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#carouselHero"
-      data-bs-slide="prev"
-      (click)="previousSlide()"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#carouselHero"
-      data-bs-slide="next"
-      (click)="nextSlide()"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+      <div *ngIf="dataDisplay.title || dataDisplay.subtitle" class="carousel-caption" [ngStyle]="{ color: dataDisplay.textColor }">
+        <h5 [ngStyle]="{ 'font-size': dataDisplay.fontSize + 'px' }">{{ dataDisplay.title }}</h5>
+        <p [ngStyle]="{ 'font-size': dataDisplay.fontSize / 1.5 + 'px' }">{{ dataDisplay.subtitle }}</p>
+      </div>
+      </ng-template>
   </ng-container>
-</div>
+</ngb-carousel>

@@ -28,6 +28,7 @@ export class DynamicPage implements OnInit {
 
   private loadPageData(): void {
     try {
+      console.log('this.data?', this.data);
       this.dynamicPageService.getDynamicPageData(this.data?.id.toString()).subscribe((data) => {
         this.dynamicPageData = data.response[0];
         this.headerService.setMenuActive(this.data?.id.toString());
