@@ -19,6 +19,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { BrazilMapComponent } from './components/brazil-map/brazil-map.component';
 import { NotFoundPage } from './pages/not-found/not-found.page';
 import { BannerComponent } from './components/dynamic/banner/banner.component';
+import { ItemInformationComponent } from './components/dynamic/item-information/item-information.component';
+import { PrincipleCardComponent } from './components/dynamic/principle-card/principle-card.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { BannerComponent } from './components/dynamic/banner/banner.component';
     TitleComponent,
     TextComponent,
     MapComponent,
+    ItemInformationComponent,
+    PrincipleCardComponent,
     DynamicComponent,
     BrazilMapComponent,
     BannerComponent,

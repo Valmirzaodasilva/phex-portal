@@ -1,7 +1,9 @@
-<app-title *ngIf="isComponentTitle" [data]="componentData"></app-title>
-<app-text *ngIf="isComponentText" [data]="componentData"></app-text>
-<app-button *ngIf="isComponentButton" [data]="componentData"></app-button>
-<app-principles-card *ngIf="isComponentPrinciplesCard" [data]="componentData"></app-principles-card>
-<app-information-card *ngIf="isComponentInformationCard" [data]="componentData"></app-information-card>
-<app-service-card *ngIf="isComponentServiceCard" [data]="componentData"></app-service-card>
-<app-banner *ngIf="isComponentBanner" [data]="componentData"></app-banner>
+<div class="mb-3">
+  <app-title *ngIf="isComponentTitle" [data]="componentData"></app-title>
+  <app-text *ngIf="isComponentText" [data]="componentData"></app-text>
+  <app-button *ngIf="isComponentButton" [data]="componentData"></app-button>
+  <app-principle-card *ngIf="isComponentPrinciplesCard" [data]="componentData"></app-principle-card>
+  <app-item-information *ngIf="isComponentInformationCard" [data]="componentData"></app-item-information>
+  <app-service-card *ngIf="isComponentServiceCard" [data]="componentData"></app-service-card>
+  <app-banner *ngIf="isComponentBanner" [data]="componentData"></app-banner>
+</div>
