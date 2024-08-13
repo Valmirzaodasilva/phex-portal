@@ -1,11 +1,11 @@
-<ng-container *ngFor="let data of dataDisplay">
+<ng-container *ngFor="let data of dataDisplay; let index = index">
   <div class="d-flex justify-content-center">
     <div class="detail-image col-4">
       <img class="service-image w-100" [src]="getImageUrl(data.images)" alt="" />
     </div>
     <div class="card p-4 m-3 me-0 w-100">
       <div class="d-flex align-items-center">
-        <fa-icon class="service-icon tertiary-color fa-regular me-3 fs-{{ data.iconSize }}" [icon]="faIcon"></fa-icon>
+        <fa-icon class="service-icon tertiary-color fa-regular me-3 fs-{{ data.iconSize }}" [icon]="faIcons[index] || faIconDefault"></fa-icon>
         <span class="service-title">{{ data.title }}</span>
       </div>
       <span class="service-text text-justify mt-3" [ngStyle]="{ color: data.textColor }">{{ data.text }}</span>

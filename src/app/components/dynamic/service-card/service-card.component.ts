@@ -1,5 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { faIcons, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { ImagesService } from 'src/app/shared/services/images.service';
+import { IconService } from 'src/app/shared/utils/icon-service';
 
 class ServiceItemModel {
   icon: string;
@@ -22,16 +24,27 @@ export class ServiceCardComponent implements OnChanges {
 
   dataDisplay: Array<ServiceItemModel>;
 
-  constructor(private imagesService: ImagesService) {}
+  faIcons: Array<IconDefinition> = [];
+  faIconDefault = faIcons;
+
+  constructor(private imagesService: ImagesService, private iconService: IconService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data']?.currentValue) {
       this.dataDisplay = changes['data'].currentValue;
+      this.getIconLoadedUtils();
     }
   }
 
   getImageUrl(image: Array<string>): string {
     let firstImage = image[0];
     return this.imagesService.getImages(firstImage);
+  }
+
+  private async getIconLoadedUtils(): Promise<void> {
+    this.dataDisplay.forEach(async (item) => {
+      const iconDefinition = await this.iconService.getFontAwesomeIcon(item.icon);
+      this.faIcons.push(iconDefinition);
+    });
   }
 }
