@@ -1,18 +1,23 @@
-<div *ngFor="let data of dataDisplay; let index = index" class="row">
-  <div [ngClass]="'col-sm-' + data.screenSize">
-    <div class="detail-light"></div>
-    <div class="card-info p-3 shadow">
-      <div class="header row">
-        <fa-icon class="col-2 icon-primary fa-regular fs-{{ data.iconSize }}" [icon]="faIcons[index] || faIconDefault"></fa-icon>
-        <div class="col">
-          <div class="row">
-            <div class="title col text-justify">
-              <span class="col fw-bold me-1" [ngStyle]="{ color: data.textColor }">{{ data.title }}</span>
-              <span class="col" [ngStyle]="{ color: data.textColor }">{{ data.text }}</span>
+<div class="row justify-content-between">
+  <ng-container *ngFor="let data of dataDisplay; let index = index">
+    <div [ngClass]="'col-sm-' + data.screenSize">
+      <div class="detail-light"></div>
+      <div class="card-info p-3 shadow">
+        <div class="header row">
+          <fa-icon
+            class="col-2 icon-primary fa-regular fs-{{ data.iconSize }}"
+            [icon]="faIcons[index] || faIconDefault"
+          ></fa-icon>
+          <div class="col">
+            <div class="row">
+              <div class="title col text-justify">
+                <span class="col fw-bold me-1" [ngStyle]="{ color: data.textColor }">{{ data.title }}</span>
+                <span class="col" [ngStyle]="{ color: data.textColor }">{{ data.text }}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 </div>
