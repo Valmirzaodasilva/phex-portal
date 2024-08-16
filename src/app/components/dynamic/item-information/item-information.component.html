@@ -1,8 +1,8 @@
 <div class="row justify-content-between">
   <ng-container *ngFor="let data of dataDisplay; let index = index">
-    <div [ngClass]="'col-sm-' + data.screenSize">
+    <div [ngClass]="'col-sm-' + data.screenSize" class="mb-3">
       <div class="detail-light"></div>
-      <div class="card-info p-3 shadow">
+      <div class="card-info p-3 h-100 shadow">
         <div class="header row">
           <fa-icon
             class="col-2 icon-primary fa-regular fs-{{ data.iconSize }}"
