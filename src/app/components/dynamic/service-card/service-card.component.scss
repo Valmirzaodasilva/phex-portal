@@ -1,13 +1,20 @@
-.card {
+.card.align-left {
   background-color: white;
   left: -20px;
 }
 
+.card.align-right {
+  background-color: white;
+  right: -20px;
+  z-index: 1;
+}
+
 .service-image {
-  min-width: 500px !important;
+  min-width: 150px !important;
   height: 100%;
   background-size: cover;
 }
+
 .detail-image {
   position: relative;
 }
@@ -19,6 +26,11 @@
   height: 100%;
   width: 5px;
   background: var(--detail-light-vertical);
+}
+
+.detail-image.align-right::before {
+  right: 0;
+  left: auto;
 }
 
 .service-title {

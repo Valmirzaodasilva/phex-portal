@@ -1,17 +1,43 @@
-<ng-container *ngFor="let data of dataDisplay; let index = index">
-  <div class="d-flex justify-content-center">
-    <div class="detail-image col-4">
-      <img class="service-image w-100" [src]="getImageUrl(data.images)" alt="" />
-    </div>
-    <div class="card p-4 m-3 me-0 w-100">
-      <div class="d-flex align-items-center">
-        <fa-icon class="service-icon tertiary-color fa-regular me-3 fs-{{ data.iconSize }}" [icon]="faIcons[index] || faIconDefault"></fa-icon>
-        <span class="service-title">{{ data.title }}</span>
+<ng-container *ngFor="let data of dataDisplay; let i = index">
+  <ng-container *ngIf="data.alignment === ALIGN_ENUM.LEFT; else alignmentEnd">
+    <div class="d-flex justify-content-center">
+      <div class="detail-image align-left col-4">
+        <img class="service-image w-100" [src]="getImageUrl(data.images)" alt="" />
       </div>
-      <span class="service-text text-justify mt-3" [ngStyle]="{ color: data.textColor }">{{ data.text }}</span>
-      <div class="w-100 d-flex justify-content-end mt-3">
-        <a href="{{ data.url }}" class="service-button btn btn-secondary">{{ data.nameButton }}</a>
+      <div class="card align-left p-4 m-3 me-0 w-100">
+        <div class="d-flex align-items-center">
+          <fa-icon
+            class="service-icon tertiary-color fa-regular me-3 fs-{{ data.iconSize }}"
+            [icon]="faIcons[i] || faIconDefault"
+          ></fa-icon>
+          <span class="service-title">{{ data.title }}</span>
+        </div>
+        <span class="service-text text-justify mt-3" [ngStyle]="{ color: data.textColor }">{{ data.text }}</span>
+        <div class="w-100 d-flex justify-content-end mt-3">
+          <a href="{{ data.url }}" class="service-button btn btn-secondary">{{ data.nameButton }}</a>
+        </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+
+  <ng-template #alignmentEnd>
+    <div class="d-flex justify-content-center">
+      <div class="card align-right p-4 m-3 me-0 w-100">
+        <div class="d-flex align-items-center">
+          <fa-icon
+            class="service-icon tertiary-color fa-regular me-3 fs-{{ data.iconSize }}"
+            [icon]="faIcons[i] || faIconDefault"
+          ></fa-icon>
+          <span class="service-title">{{ data.title }}</span>
+        </div>
+        <span class="service-text text-justify mt-3" [ngStyle]="{ color: data.textColor }">{{ data.text }}</span>
+        <div class="w-100 d-flex justify-content-end mt-3">
+          <a href="{{ data.url }}" class="service-button btn btn-secondary">{{ data.nameButton }}</a>
+        </div>
+      </div>
+      <div class="detail-image align-right col-4">
+        <img class="service-image w-100" [src]="getImageUrl(data.images)" alt="" />
+      </div>
+    </div>
+  </ng-template>
 </ng-container>

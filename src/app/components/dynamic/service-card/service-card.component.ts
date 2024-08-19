@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { faIcons, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { ALIGN_ENUM } from 'src/app/shared/enums/align-enum.enum';
 import { ImagesService } from 'src/app/shared/services/images.service';
 import { IconService } from 'src/app/shared/utils/icon-service';
 
@@ -11,6 +12,7 @@ class ServiceItemModel {
   nameButton: string;
   url: string;
   iconSize: number;
+  alignment: ALIGN_ENUM;
   images: Array<string>;
 }
 
@@ -24,8 +26,10 @@ export class ServiceCardComponent implements OnChanges {
 
   dataDisplay: Array<ServiceItemModel>;
 
-  faIcons: Array<IconDefinition> = [];
+  faIcons: Array<IconDefinition> = [faIcons];
   faIconDefault = faIcons;
+
+  ALIGN_ENUM = ALIGN_ENUM;
 
   constructor(private imagesService: ImagesService, private iconService: IconService) {}
 
