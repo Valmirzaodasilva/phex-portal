@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { NavigationMenuModel } from 'src/app/shared/models/navigation-menu.model';
+import { NavigationMenuModel, NavigationMenuSSWModel } from 'src/app/shared/models/navigation-menu.model';
 import { HeaderService } from 'src/app/shared/services/header.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { HeaderService } from 'src/app/shared/services/header.service';
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   public menus: Array<NavigationMenuModel> = [];
+  public menusSSW: Array<NavigationMenuSSWModel> = [];
   public menuActive: string;
 
   private subscriptions = new Subscription();
@@ -21,6 +22,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.headerService.menuList$.subscribe((navigationMenu) => {
         this.menus = navigationMenu;
+      })
+    );
+
+    this.subscriptions.add(
+      this.headerService.menuListSSW$.subscribe((navigationMenu) => {
+        this.menusSSW = navigationMenu;
       })
     );
 

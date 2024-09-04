@@ -4,3 +4,9 @@ export class NavigationMenuModel {
   url: string;
   idDynamicPage: number;
 }
+
+export class NavigationMenuSSWModel {
+  id: number;
+  menuPortalName: string;
+  menuPortalUrl: string;
+}

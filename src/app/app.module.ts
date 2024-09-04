@@ -21,6 +21,7 @@ import { NotFoundPage } from './pages/not-found/not-found.page';
 import { BannerComponent } from './components/dynamic/banner/banner.component';
 import { ItemInformationComponent } from './components/dynamic/item-information/item-information.component';
 import { PrincipleCardComponent } from './components/dynamic/principle-card/principle-card.component';
+import { SearchSSWPage } from './pages/search-ssw/search-ssw.page';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { PrincipleCardComponent } from './components/dynamic/principle-card/prin
     LoadingComponent,
     NavbarComponent,
     DynamicPage,
+    SearchSSWPage,
     FooterComponent,
     ServiceCardComponent,
     TitleComponent,

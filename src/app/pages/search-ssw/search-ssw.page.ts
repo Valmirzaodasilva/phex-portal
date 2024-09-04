@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DynamicPageModel } from 'src/app/shared/models/dynamic-page-models/dynamic-page.model';
 import { NavigationMenuModel } from 'src/app/shared/models/navigation-menu.model';
-import { DynamicPageService } from 'src/app/shared/services/dynamic-page.service';
+import { SearchSSWPageModel } from 'src/app/shared/models/search-ssw-page-models/search-ssw-page-model';
 import { HeaderService } from 'src/app/shared/services/header.service';
+import { SearchSSWPageService } from 'src/app/shared/services/search-ssw-page.service';
 
 @Component({
-  selector: 'app-dynamic',
-  templateUrl: './dynamic.page.html',
-  styleUrls: ['./dynamic.page.scss'],
+  selector: 'app-search-ssw',
+  templateUrl: './search-ssw.page.html',
+  styleUrls: ['./search-ssw.page.scss'],
 })
-export class DynamicPage implements OnInit {
-  public dynamicPageData: DynamicPageModel;
+export class SearchSSWPage implements OnInit {
+  public searchSSWPageData: SearchSSWPageModel;
 
   private data?: NavigationMenuModel;
 
   constructor(
     private route: ActivatedRoute,
-    private dynamicPageService: DynamicPageService,
+    private searchSSWPageService: SearchSSWPageService,
     private headerService: HeaderService
   ) {}
 
@@ -28,8 +28,8 @@ export class DynamicPage implements OnInit {
 
   private loadPageData(): void {
     try {
-      this.dynamicPageService.getDynamicPageData(this.data?.id.toString()).subscribe((data) => {
-        this.dynamicPageData = data.response[0];
+      this.searchSSWPageService.getSearchSSWPageData(this.data?.id.toString()).subscribe((data) => {
+        this.searchSSWPageData = data.response[0];
         this.headerService.setMenuActive(this.data?.id.toString());
       });
     } catch (error) {

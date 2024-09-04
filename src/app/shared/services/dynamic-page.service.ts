@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class DynamicPageService {
-  private apiUrl = `${environment.apiUrl}/portal-page-data`;
+  private apiUrl = `${environment.apiUrl}/portal-dynamic-page-data`;
 
   constructor(private http: HttpClient) {}
 
