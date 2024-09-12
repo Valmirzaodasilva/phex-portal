@@ -5,6 +5,7 @@ import { HeaderService } from './shared/services/header.service';
 import { Subscription } from 'rxjs';
 import { DynamicPage } from './pages/dynamic/dynamic.page';
 import { NotFoundPage } from './pages/not-found/not-found.page';
+import { SearchSSWPage } from './pages/search-ssw/search-ssw.page';
 
 const routes: Routes = [
   {
@@ -32,9 +33,9 @@ const routes: Routes = [
 export class AppRoutingModule implements OnDestroy {
   private subscriptions = new Subscription();
 
-  constructor(private loadingService: LoadingService, private router: Router, private headerSerivce: HeaderService) {
+  constructor(private loadingService: LoadingService, private router: Router, private headerService: HeaderService) {
     this.subscriptions.add(
-      this.headerSerivce.menuList$.subscribe((menus) => {
+      this.headerService.menuList$.subscribe((menus) => {
         menus.forEach((menu) => {
           routes.unshift({
             path: menu.url,
@@ -42,8 +43,17 @@ export class AppRoutingModule implements OnDestroy {
             data: { menu },
           });
         });
-        this.router.resetConfig(routes);
-        this.router.navigateByUrl(this.router.url);
+        this.headerService.menuListSSW$.subscribe((sswMenus) => {
+          sswMenus.forEach((sswMenu) => {
+            routes.unshift({
+              path: sswMenu.menuPortalUrl,
+              component: SearchSSWPage,
+              data: { menu: sswMenu },
+            });
+          });
+          this.router.resetConfig(routes);
+          this.router.navigateByUrl(this.router.url);
+        });
       })
     );
   }

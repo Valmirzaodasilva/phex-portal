@@ -46,4 +46,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.headerService.setMenuActive(menu.id.toString());
     this.router.navigateByUrl(menu.url, { state: { menu } });
   }
+
+  changeMenuSSWActive(menu: NavigationMenuSSWModel): void {
+    this.headerService.setMenuActive(menu.id.toString());
+    this.router.navigateByUrl(menu.menuPortalUrl, { state: { menu } });
+  }
 }

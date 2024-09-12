@@ -35,7 +35,11 @@
             </li>
           </ul>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button ngbDropdownItem *ngFor="let menu of menusSSW" href="{{ menu.menuPortalUrl }}">
+            <button
+              ngbDropdownItem
+              *ngFor="let menu of menusSSW"
+              (click)="changeMenuSSWActive(menu)"
+            >
               {{ menu.menuPortalName }}
             </button>
           </div>
