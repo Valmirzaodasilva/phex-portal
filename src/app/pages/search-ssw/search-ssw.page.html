@@ -1,6 +1,31 @@
-<div *ngIf="searchSSWPageData">
-  <pre>TODO: FINALIZAR</pre>
-  <!-- <div *ngFor="let component of searchSSWPageData.inputSearchSSW">
-    <app-search-page-ssw-component [component]="component"></app-search-page-ssw-component>
-  </div> -->
+<div class="mt-5 p-5" *ngIf="searchSSWPageData">
+  <h5 class="title text-primary mb-3">{{ searchSSWPageData.title }}</h5>
+
+  <form [formGroup]="searchForm" (ngSubmit)="searchSSW($event)">
+    <ng-container *ngFor="let input of inputsSSW">
+      <app-inputs [dataInputSearchSSW]="input"></app-inputs>
+    </ng-container>
+
+    <div class="d-flex justify-content-{{ getAlign(searchSSWPageData.buttonAlignments) }} mt-5 gap-3">
+      <button
+        *ngIf="searchSSWPageData.hasClearButton"
+        class="btn btn-danger"
+        [style.background-color]="searchSSWPageData.buttonClearColor"
+        [style.color]="searchSSWPageData.buttonClearColor"
+        type="button"
+        (click)="clearForm()"
+      >
+        {{ searchSSWPageData.buttonClearText }}
+      </button>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [style.background-color]="searchSSWPageData.buttonConfirmColor"
+        [style.color]="searchSSWPageData.buttonConfirmColor"
+      >
+        {{ searchSSWPageData.buttonConfirmText }}
+      </button>
+    </div>
+  </form>
 </div>

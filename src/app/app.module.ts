@@ -22,6 +22,7 @@ import { BannerComponent } from './components/dynamic/banner/banner.component';
 import { ItemInformationComponent } from './components/dynamic/item-information/item-information.component';
 import { PrincipleCardComponent } from './components/dynamic/principle-card/principle-card.component';
 import { SearchSSWPage } from './pages/search-ssw/search-ssw.page';
+import { InputsComponent } from './components/inputs/inputs.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SearchSSWPage } from './pages/search-ssw/search-ssw.page';
     DynamicComponent,
     BrazilMapComponent,
     BannerComponent,
+    InputsComponent,
   ],
   imports: [
     BrowserModule,

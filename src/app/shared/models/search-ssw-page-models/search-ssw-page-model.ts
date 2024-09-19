@@ -12,7 +12,7 @@ export class SearchSSWPageModel {
   buttonConfirmColor?: string;
   buttonClearText?: string;
   buttonClearColor?: string;
-  inputs?: InputSearchModel[];
+  inputSSW?: InputSearchModel[];
   menuPortalName?: string;
   menuPortalUrl?: string;
 }
@@ -24,5 +24,8 @@ export class InputSearchModel {
   required: boolean;
   description: string;
   screenSize: number;
+  options?: string[]; // TODO: ADICIONAR PARA SELECT NO FRONT E BACKEND
   idSearchPage: number; // FK
+  idInputSearch?: number; // FK SE FOR ARRAY FILHO
+  inputsArray?: InputSearchModel[]; // UTILIZADO PARA ARRAY NO FRONT
 }

@@ -1,0 +1,277 @@
+<!--
+    TEXT = 'TEXT',
+    TEXTAREA = 'TEXTAREA',
+    NUMBER = 'NUMBER',
+    OBJECT = 'OBJECT',
+    ARRAY = 'ARRAY',
+    BOOLEAN = 'BOOLEAN',
+    DATE = 'DATE',
+    DATETIME = 'DATETIME',
+    IMAGE = 'IMAGE',
+    PASSWORD = 'PASSWORD',
+    SELECT = 'SELECT',
+-->
+
+<ng-container *ngIf="isInputTypeText">
+  <div class="mb-3">
+    <div class="input-group p-0">
+      <div class="form-floating">
+        <input
+          class="form-control"
+          aria-describedby="addon-wrapping"
+          [id]="'floatingInput' + dataInputSearchSSW.name"
+          [type]="dataInputSearchSSW.type === 'DATETIME' ? 'datetime-local' : dataInputSearchSSW.type"
+          [name]="dataInputSearchSSW.name"
+          [size]="dataInputSearchSSW.size"
+          [required]="dataInputSearchSSW.required"
+          [placeholder]="dataInputSearchSSW.description"
+          [formControlName]="dataInputSearchSSW.name"
+          [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+        />
+        <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+          {{ dataInputSearchSSW.description }}
+        </label>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isInputTypeTextarea">
+  <div class="mb-3">
+    <div class="input-group p-0">
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          aria-describedby="addon-wrapping"
+          [id]="'floatingInput' + dataInputSearchSSW.name"
+          [name]="dataInputSearchSSW.name"
+          [size]="dataInputSearchSSW.size"
+          [required]="dataInputSearchSSW.required"
+          [placeholder]="dataInputSearchSSW.description"
+          [formControlName]="dataInputSearchSSW.name"
+          [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+        ></textarea>
+        <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+          {{ dataInputSearchSSW.description }}
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="isInputTypeNumber">
+    <div class="mb-3">
+      <div class="input-group p-0">
+        <div class="form-floating">
+          <input
+            class="form-control"
+            aria-describedby="addon-wrapping"
+            [id]="'floatingInput' + dataInputSearchSSW.name"
+            [type]="dataInputSearchSSW.type === 'DATETIME' ? 'datetime-local' : dataInputSearchSSW.type"
+            [name]="dataInputSearchSSW.name"
+            [size]="dataInputSearchSSW.size"
+            [required]="dataInputSearchSSW.required"
+            [placeholder]="dataInputSearchSSW.description"
+            [formControlName]="dataInputSearchSSW.name"
+            [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+          />
+          <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+            {{ dataInputSearchSSW.description }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isInputTypeObject">
+    <div class="mb-3">
+      <div class="input-group p-0">
+        <div class="form-floating">
+          <input
+            class="form-control"
+            aria-describedby="addon-wrapping"
+            [id]="'floatingInput' + dataInputSearchSSW.name"
+            [type]="dataInputSearchSSW.type === 'DATETIME' ? 'datetime-local' : dataInputSearchSSW.type"
+            [name]="dataInputSearchSSW.name"
+            [size]="dataInputSearchSSW.size"
+            [required]="dataInputSearchSSW.required"
+            [placeholder]="dataInputSearchSSW.description"
+            [formControlName]="dataInputSearchSSW.name"
+            [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+          />
+          <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+            {{ dataInputSearchSSW.description }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isInputTypeArray">
+    <div class="mb-3">
+      <div class="input-group p-0">
+        <div class="form-floating">
+          <input
+            class="form-control"
+            aria-describedby="addon-wrapping"
+            [id]="'floatingInput' + dataInputSearchSSW.name"
+            [type]="dataInputSearchSSW.type === 'DATETIME' ? 'datetime-local' : dataInputSearchSSW.type"
+            [name]="dataInputSearchSSW.name"
+            [size]="dataInputSearchSSW.size"
+            [required]="dataInputSearchSSW.required"
+            [placeholder]="dataInputSearchSSW.description"
+            [formControlName]="dataInputSearchSSW.name"
+            [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+          />
+          <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+            {{ dataInputSearchSSW.description }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isInputTypeBoolean">
+    <div class="mb-3">
+      <div class="input-group p-0">
+        <div class="form-floating">
+          <input
+            class="form-control"
+            aria-describedby="addon-wrapping"
+            [id]="'floatingInput' + dataInputSearchSSW.name"
+            [type]="dataInputSearchSSW.type === 'DATETIME' ? 'datetime-local' : dataInputSearchSSW.type"
+            [name]="dataInputSearchSSW.name"
+            [size]="dataInputSearchSSW.size"
+            [required]="dataInputSearchSSW.required"
+            [placeholder]="dataInputSearchSSW.description"
+            [formControlName]="dataInputSearchSSW.name"
+            [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+          />
+          <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+            {{ dataInputSearchSSW.description }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isInputTypeDate">
+    <div class="mb-3">
+      <div class="input-group p-0">
+        <div class="form-floating">
+          <input
+            class="form-control"
+            aria-describedby="addon-wrapping"
+            [id]="'floatingInput' + dataInputSearchSSW.name"
+            [type]="dataInputSearchSSW.type === 'DATETIME' ? 'datetime-local' : dataInputSearchSSW.type"
+            [name]="dataInputSearchSSW.name"
+            [size]="dataInputSearchSSW.size"
+            [required]="dataInputSearchSSW.required"
+            [placeholder]="dataInputSearchSSW.description"
+            [formControlName]="dataInputSearchSSW.name"
+            [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+          />
+          <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+            {{ dataInputSearchSSW.description }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isInputTypeDatetime">
+    <div class="mb-3">
+      <div class="input-group p-0">
+        <div class="form-floating">
+          <input
+            class="form-control"
+            aria-describedby="addon-wrapping"
+            [id]="'floatingInput' + dataInputSearchSSW.name"
+            [type]="dataInputSearchSSW.type === 'DATETIME' ? 'datetime-local' : dataInputSearchSSW.type"
+            [name]="dataInputSearchSSW.name"
+            [size]="dataInputSearchSSW.size"
+            [required]="dataInputSearchSSW.required"
+            [placeholder]="dataInputSearchSSW.description"
+            [formControlName]="dataInputSearchSSW.name"
+            [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+          />
+          <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+            {{ dataInputSearchSSW.description }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isInputTypeImage">
+    <div class="mb-3">
+      <div class="input-group p-0">
+        <div class="form-floating">
+          <input
+            class="form-control"
+            aria-describedby="addon-wrapping"
+            [id]="'floatingInput' + dataInputSearchSSW.name"
+            [type]="dataInputSearchSSW.type === 'DATETIME' ? 'datetime-local' : dataInputSearchSSW.type"
+            [name]="dataInputSearchSSW.name"
+            [size]="dataInputSearchSSW.size"
+            [required]="dataInputSearchSSW.required"
+            [placeholder]="dataInputSearchSSW.description"
+            [formControlName]="dataInputSearchSSW.name"
+            [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+          />
+          <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+            {{ dataInputSearchSSW.description }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isInputTypePassword">
+    <div class="mb-3">
+      <div class="input-group p-0">
+        <div class="form-floating">
+          <input
+            class="form-control"
+            aria-describedby="addon-wrapping"
+            [id]="'floatingInput' + dataInputSearchSSW.name"
+            [type]="dataInputSearchSSW.type === 'DATETIME' ? 'datetime-local' : dataInputSearchSSW.type"
+            [name]="dataInputSearchSSW.name"
+            [size]="dataInputSearchSSW.size"
+            [required]="dataInputSearchSSW.required"
+            [placeholder]="dataInputSearchSSW.description"
+            [formControlName]="dataInputSearchSSW.name"
+            [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+          />
+          <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+            {{ dataInputSearchSSW.description }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isInputTypeSelect">
+    <div class="mb-3">
+      <div class="input-group p-0">
+        <div class="form-floating">
+          <select
+            class="form-select"
+            aria-label="Floating label select example"
+            [id]="'floatingInput' + dataInputSearchSSW.name"
+            [name]="dataInputSearchSSW.name"
+            [size]="dataInputSearchSSW.size"
+            [required]="dataInputSearchSSW.required"
+            [formControlName]="dataInputSearchSSW.name"
+            [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
+          >
+            <option value="" disabled selected>{{ dataInputSearchSSW.description }}</option>
+            <option *ngFor="let option of dataInputSearchSSW.options" [value]="option.value">{{ option.label }}</option>
+          </select>
+          <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
+            {{ dataInputSearchSSW.description }}
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>
