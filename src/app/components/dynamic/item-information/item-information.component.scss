@@ -1,8 +1,14 @@
 .card-info {
   background-color: white;
   background: white;
+  position: relative;
 }
 
 .detail-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 5px;
+  background-color: var(--secondary-color);
 }
