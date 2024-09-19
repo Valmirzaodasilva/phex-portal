@@ -1,13 +1,40 @@
-<ngb-carousel class="custom-container">
-  <ng-container>
-    <ng-template ngbSlide *ngFor="let image of dataDisplay.images">
+<ngb-carousel *ngIf="dataDisplay?.images?.length > 1" [showNavigationArrows]="true" class="custom-container">
+  <ng-container *ngFor="let image of dataDisplay.images">
+    <ng-template ngbSlide>
       <div class="picsum-img-wrapper">
         <img [src]="getImageUrl(image)" class="d-block w-100 h-100" alt="..." />
       </div>
-      <div *ngIf="dataDisplay.title || dataDisplay.subtitle" class="carousel-caption" [ngStyle]="{ color: dataDisplay.textColor }">
-        <h5 [ngStyle]="{ 'font-size': dataDisplay.fontSize + 'px' }">{{ dataDisplay.title }}</h5>
+      <div
+        *ngIf="dataDisplay.title || dataDisplay.subtitle"
+        class="carousel-caption"
+        [ngStyle]="{ color: dataDisplay.textColor }"
+      >
+        <h3 [ngStyle]="{ 'font-size': dataDisplay.fontSize + 'px' }">{{ dataDisplay.title }}</h3>
         <p [ngStyle]="{ 'font-size': dataDisplay.fontSize / 1.5 + 'px' }">{{ dataDisplay.subtitle }}</p>
       </div>
-      </ng-template>
+    </ng-template>
+  </ng-container>
+</ngb-carousel>
+
+<ngb-carousel
+  *ngIf="dataDisplay?.images?.length === 1"
+  [showNavigationArrows]="false"
+  [showNavigationIndicators]="false"
+  class="custom-container"
+>
+  <ng-container *ngFor="let image of dataDisplay.images">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img [src]="getImageUrl(image)" class="d-block w-100 h-100" alt="..." />
+      </div>
+      <div
+        *ngIf="dataDisplay.title || dataDisplay.subtitle"
+        class="carousel-caption"
+        [ngStyle]="{ color: dataDisplay.textColor }"
+      >
+        <h3 [ngStyle]="{ 'font-size': dataDisplay.fontSize + 'px' }">{{ dataDisplay.title }}</h3>
+        <p [ngStyle]="{ 'font-size': dataDisplay.fontSize / 1.5 + 'px' }">{{ dataDisplay.subtitle }}</p>
+      </div>
+    </ng-template>
   </ng-container>
 </ngb-carousel>
