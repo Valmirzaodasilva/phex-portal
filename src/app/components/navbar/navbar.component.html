@@ -20,7 +20,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto gap-4">
         <li class="nav-item" *ngFor="let menu of menus">
           <a
-            class="nav-link"
+            class="nav-link fw-semibold"
             [class.active]="menuActive === menu.id"
             aria-current="page"
             (click)="changeMenuActive(menu)"
@@ -31,7 +31,7 @@
         <div ngbDropdown class="d-inline-block">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto gap-4">
             <li class="nav-item">
-              <a id="dropdownBasic1" class="nav-link" aria-current="page" ngbDropdownToggle>CONSULTAS</a>
+              <a id="dropdownBasic1" class="nav-link fw-semibold" aria-current="page" ngbDropdownToggle>CONSULTAS</a>
             </li>
           </ul>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
