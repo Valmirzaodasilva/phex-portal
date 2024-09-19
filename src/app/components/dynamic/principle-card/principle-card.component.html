@@ -1,17 +1,17 @@
 <div class="row justify-content-between">
   <ng-container *ngFor="let data of dataDisplay; let index = index">
     <div [ngClass]="'col-sm-' + data.screenSize" class="mb-3">
-      <div class="card-info p-3 h-100 shadow rounded">
+      <div class="card-info p-3 ps-5 pe-5 h-100 shadow rounded">
         <div class="row d-flex align-items-center text-center">
           <fa-icon
-            class="col-2 icon-secondary fa-regular fs-{{ data.iconSize }}"
+            class="col-2 icon-secondary fa-regular fs-{{ getSizeIconAdjust(data.iconSize) }}"
             [icon]="faIcons[index] || faIconDefault"
           ></fa-icon>
-          <span class="col fw-bold me-5">{{ data.title }}</span>
+          <span class="col fw-bold me-5 fs-5 text-center">{{ data.title }}</span>
         </div>
 
         <div class="header">
-          <div class="title text-center">
+          <div class="title text-justify">
             <span class="text">{{ data.text }}</span>
           </div>
         </div>

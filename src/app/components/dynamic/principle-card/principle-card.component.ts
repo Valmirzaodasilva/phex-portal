@@ -35,6 +35,10 @@ export class PrincipleCardComponent implements OnChanges {
     }
   }
 
+  getSizeIconAdjust(iconSize: number): number {
+    return iconSize >= 1 && iconSize <= 5 ? 6 - iconSize : 0;
+  }
+
   async getIconLoadedUtils(): Promise<void> {
     this.dataDisplay.forEach(async (item) => {
       const iconDefinition = await this.iconService.getFontAwesomeIcon(item.icon);
