@@ -6,12 +6,18 @@ import { Subscription } from 'rxjs';
 import { DynamicPage } from './pages/dynamic/dynamic.page';
 import { NotFoundPage } from './pages/not-found/not-found.page';
 import { SearchSSWPage } from './pages/search-ssw/search-ssw.page';
+import { ContactPage } from './pages/contact/contact.page';
 
 const routes: Routes = [
   {
     path: '',
     component: DynamicPage,
     data: { menu: { id: '1', name: 'Início', url: 'inicio' } },
+  },
+  {
+    path: 'contatos',
+    component: ContactPage,
+    data: { menu: { id: 878787, name: 'Contatos', url: 'contatos' } },
   },
   {
     path: '**',

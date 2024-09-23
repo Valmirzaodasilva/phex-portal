@@ -10,3 +10,10 @@ export class NavigationMenuSSWModel {
   menuPortalName: string;
   menuPortalUrl: string;
 }
+
+export class NavigationMenuContactPage {
+  id: number;
+  name: string;
+  url: string;
+  idDynamicPage: number = 0;
+}

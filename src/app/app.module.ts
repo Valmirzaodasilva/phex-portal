@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoadingComponent } from './components/loading/loading.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DynamicPage } from './pages/dynamic/dynamic.page';
+import { ContactPage } from './pages/contact/contact.page';
 import { FooterComponent } from './components/footer/footer.component';
 import { ServiceCardComponent } from './components/dynamic/service-card/service-card.component';
 import { TitleComponent } from './components/dynamic/title/title.component';
@@ -32,6 +33,7 @@ import { InputsComponent } from './components/inputs/inputs.component';
     NavbarComponent,
     DynamicPage,
     SearchSSWPage,
+    ContactPage,
     FooterComponent,
     ServiceCardComponent,
     TitleComponent,

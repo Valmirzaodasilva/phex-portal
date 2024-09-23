@@ -1,7 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { NavigationMenuModel, NavigationMenuSSWModel } from 'src/app/shared/models/navigation-menu.model';
+import {
+  NavigationMenuContactPage,
+  NavigationMenuModel,
+  NavigationMenuSSWModel,
+} from 'src/app/shared/models/navigation-menu.model';
 import { HeaderService } from 'src/app/shared/services/header.service';
 
 @Component({
@@ -13,6 +17,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public menus: Array<NavigationMenuModel> = [];
   public menusSSW: Array<NavigationMenuSSWModel> = [];
   public menuActive: string;
+  public menuContactPage: NavigationMenuContactPage = {
+    id: 878787,
+    name: 'Contatos ',
+    url: 'contatos',
+    idDynamicPage: 0,
+  };
 
   private subscriptions = new Subscription();
 

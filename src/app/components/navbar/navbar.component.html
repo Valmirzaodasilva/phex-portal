@@ -28,6 +28,17 @@
           >
         </li>
 
+        <!-- CONTACT MENU -->
+        <li class="nav-item">
+          <a
+            class="nav-link fs-5 fw-bolder"
+            [class.active]="menuActive === menuContactPage.id.toString()"
+            aria-current="page"
+            (click)="changeMenuActive(menuContactPage)"
+            >CONTATOS</a
+          >
+        </li>
+
         <div ngbDropdown class="d-inline-block">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto gap-4">
             <li class="nav-item">
