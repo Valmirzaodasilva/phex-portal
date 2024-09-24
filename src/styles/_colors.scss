@@ -32,6 +32,7 @@ $color: white;
   --text-super-light: #d1e2ff;
   --text-yellow: #f5ff7d;
   --text-secondary: #ef4b43;
+  --text-tertiary: #ffc107;
 
   // INPUTS
   --input-color-dark: #6f93cd;
@@ -42,6 +43,7 @@ $color: white;
   --button-primary-text-color: #d1e2ff;
   --button-secondary-text-color: #d1e2ff;
   --button-action-text-color: #f5ff7d;
+  --button-succes-text-color: #198754;
   --bs-btn-color: #d1e2ff;
   --bs-btn-hover-color: #d1e2ff;
 
@@ -67,7 +69,7 @@ $color: white;
 
 // BACKGROUND
 .bg-primary {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color) !important;
 }
 
 .bg-primary-heavy {
@@ -91,19 +93,19 @@ $color: white;
 }
 
 .bg-secondary-dark {
-  background-color: var(--secondary-dark-color);
+  background-color: var(--secondary-dark-color) !important;
 }
 
 .bg-secondary-light {
-  background-color: var(--secondary-light-color);
+  background-color: var(--secondary-light-color) !important;
 }
 
 .bg-secondary-clear {
-  background-color: var(--secondary-clear-color);
+  background-color: var(--secondary-clear-color) !important;
 }
 
 .bg-tertiary {
-  background-color: var(--tertiary-color);
+  background-color: var(--tertiary-color) !important;
 }
 
 // TEXTS
@@ -113,6 +115,10 @@ $color: white;
 
 .text-dark {
   color: var(--text-dark);
+}
+
+.text-action {
+  color: var(--text-action);
 }
 
 // BUTTON
@@ -140,6 +146,26 @@ $color: white;
 
 .btn-primary-default:hover {
   background: linear-gradient(90deg, #4469a5 0%, #e25a53 100%);
+}
+
+.btn-outline-primary {
+  border: none;
+  color: var(--text-primary);
+}
+
+.btn-outline-primary:hover {
+  color: var(--button-primary-text-color);
+  background: var(--primary-color);
+}
+
+.btn-outline-action {
+  border: none;
+  color: var(--text-tertiary);
+}
+
+.btn-outline-action:hover {
+  color: white !important;
+  background: var(--tertiary-color);
 }
 
 .btn-table-action {

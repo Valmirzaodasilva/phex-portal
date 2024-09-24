@@ -1,1 +1,95 @@
-<h1>CONTACT PAGE</h1>
+<div class="row mt-5">
+  <div class="col-6">
+    <form action="">
+      <div class="input-group p-0 mb-3 col-sm-12 col-md-12">
+        <div class="form-floating">
+          <input
+            id="floatingInputName"
+            formControlName="text"
+            type="text"
+            class="form-control"
+            placeholder="Nome completo"
+            aria-describedby="addon-wrapping"
+            autocomplete="off"
+          />
+          <label class="bg-transparent" for="floatingInputName"> Nome completo </label>
+        </div>
+      </div>
+
+      <div class="input-group p-0 mb-3 col-sm-12 col-md-12">
+        <div class="form-floating">
+          <input
+            id="floatingInputEmail"
+            formControlName="text"
+            type="text"
+            class="form-control"
+            placeholder="Digite o texto para contato via WhatsApp"
+            aria-describedby="addon-wrapping"
+            autocomplete="off"
+          />
+          <label class="bg-transparent" for="floatingInputEmail"> Email </label>
+        </div>
+      </div>
+
+      <div class="input-group p-0 mb-3 col-sm-12 col-md-12">
+        <div class="form-floating">
+          <textarea
+            id="floatingInputMessage"
+            formControlName="text"
+            class="form-control"
+            placeholder="Mensagem"
+            aria-describedby="addon-wrapping"
+            autocomplete="off"
+            style="height: 150px"
+          ></textarea>
+          <label class="bg-transparent" for="floatingInputMessage"> Messagem </label>
+        </div>
+      </div>
+
+      <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
+        <button type="button" class="btn btn-primary-default" (click)="sendEmail()">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- FALE NO WPP -->
+  <div class="col-6 d-flex align-items-center justify-content-center">
+    <div>
+      <span class="icon-attendant d-flex m-auto mb-3"></span>
+      <h5 class="text-center icon-primary">OU FALE PELO NOSSO WHATSAPP</h5>
+      <p class="text-center text-light">Clique no botão abaixo para falar com um de nossos atendentes</p>
+
+      <div #contactWhatsapp class="col pt-3">
+        <div class="mb-3">
+          <a
+            type="button"
+            class="button-whatsapp m-auto d-flex justify-content-center align-items-center gap-2"
+            target="_blank"
+            [href]="getContactWhatsapp()"
+          >
+            <span class="fs-4 ps-3">ENTRAR EM CONTATO</span>
+            <span class="icon-wpp"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAPS -->
+<div class="col-12 mt-5 water-mask-dark bg-primary-dark custom-container">
+  <div class="map-responsive container p-3 pb-0">
+    <h5 class="icon-primary mb-3">NOS ENCONTRE</h5>
+    <ng-container *ngIf="contactPageData?.linkMaps">
+      <iframe
+        [src]="sanitizeUrl(contactPageData.linkMaps)"
+        title="map"
+        width="600"
+        height="450"
+        style="border: 0; width: 100%"
+        allowfullscreen="true"
+        loading="lazy"
+      ></iframe>
+    </ng-container>
+  </div>
+</div>

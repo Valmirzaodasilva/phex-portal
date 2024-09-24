@@ -13,7 +13,7 @@ export class ContactPageService {
 
   constructor(private http: HttpClient) {}
 
-  getContactPageData(id: string): Observable<ResponseModel<ContactPageModel>> {
-    return this.http.get<ResponseModel<ContactPageModel>>(`${this.apiUrl}`);
+  getContactPageData(): Observable<ResponseModel<ContactPageModel>> {
+    return this.http.get<ResponseModel<ContactPageModel>>(`${this.apiUrl}-list`);
   }
 }
