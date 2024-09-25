@@ -29,7 +29,7 @@
         </li>
 
         <!-- CONTACT MENU -->
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isDisplayContactPage">
           <a
             class="nav-link fs-5 fw-bolder"
             [class.active]="menuActive === menuContactPage.id.toString()"
@@ -46,11 +46,7 @@
             </li>
           </ul>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-            <button
-              ngbDropdownItem
-              *ngFor="let menu of menusSSW"
-              (click)="changeMenuSSWActive(menu)"
-            >
+            <button ngbDropdownItem *ngFor="let menu of menusSSW" (click)="changeMenuSSWActive(menu)">
               {{ menu.menuPortalName }}
             </button>
           </div>

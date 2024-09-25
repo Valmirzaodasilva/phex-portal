@@ -23,6 +23,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     url: 'contatos',
     idDynamicPage: 0,
   };
+  public isDisplayContactPage = false;
 
   private subscriptions = new Subscription();
 
@@ -44,6 +45,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.headerService.menuActive$.subscribe((menuActive) => {
         this.menuActive = menuActive;
+      })
+    );
+
+    this.subscriptions.add(
+      this.headerService.configPortal$.subscribe((configPortal) => {
+        this.isDisplayContactPage = configPortal.displayContactsPage;
       })
     );
   }
