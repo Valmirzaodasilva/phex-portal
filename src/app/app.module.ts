@@ -24,6 +24,8 @@ import { ItemInformationComponent } from './components/dynamic/item-information/
 import { PrincipleCardComponent } from './components/dynamic/principle-card/principle-card.component';
 import { SearchSSWPage } from './pages/search-ssw/search-ssw.page';
 import { InputsComponent } from './components/inputs/inputs.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,9 @@ import { InputsComponent } from './components/inputs/inputs.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
     NgxEchartsModule.forRoot({

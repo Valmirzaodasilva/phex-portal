@@ -1,53 +1,93 @@
 <div class="row mt-5">
   <div class="col-6">
-    <form action="">
+    <form #form="ngForm" [formGroup]="contactForm" (ngSubmit)="sendEmail()">
+      <!-- Campo 'Nome completo' -->
       <div class="input-group p-0 mb-3 col-sm-12 col-md-12">
         <div class="form-floating">
           <input
             id="floatingInputName"
-            formControlName="text"
             type="text"
+            name="user_name"
+            formControlName="user_name"
             class="form-control"
             placeholder="Nome completo"
             aria-describedby="addon-wrapping"
             autocomplete="off"
+            required
+            [ngClass]="{'is-invalid': contactForm.get('user_name').invalid && contactForm.get('user_name').touched}"
           />
           <label class="bg-transparent" for="floatingInputName"> Nome completo </label>
+          <div
+            *ngIf="contactForm.get('user_name').invalid && contactForm.get('user_name').touched"
+            class="invalid-feedback"
+          >
+            O campo Nome completo é obrigatório.
+          </div>
         </div>
       </div>
 
+      <!-- Campo 'Email' -->
       <div class="input-group p-0 mb-3 col-sm-12 col-md-12">
         <div class="form-floating">
           <input
             id="floatingInputEmail"
-            formControlName="text"
-            type="text"
+            type="email"
+            name="user_email"
+            formControlName="user_email"
             class="form-control"
-            placeholder="Digite o texto para contato via WhatsApp"
+            placeholder="Email"
             aria-describedby="addon-wrapping"
             autocomplete="off"
+            required
+            [ngClass]="{'is-invalid': contactForm.get('user_email').invalid && contactForm.get('user_email').touched}"
           />
           <label class="bg-transparent" for="floatingInputEmail"> Email </label>
+          <div
+            *ngIf="contactForm.get('user_email').invalid && contactForm.get('user_email').touched"
+            class="invalid-feedback"
+          >
+            O campo Email é obrigatório.
+          </div>
         </div>
       </div>
 
+      <!-- Campo 'Mensagem' -->
       <div class="input-group p-0 mb-3 col-sm-12 col-md-12">
         <div class="form-floating">
           <textarea
             id="floatingInputMessage"
-            formControlName="text"
             class="form-control"
+            name="message"
+            formControlName="message"
             placeholder="Mensagem"
             aria-describedby="addon-wrapping"
             autocomplete="off"
+            required
             style="height: 150px"
+            [ngClass]="{'is-invalid': contactForm.get('message').invalid && contactForm.get('message').touched}"
           ></textarea>
-          <label class="bg-transparent" for="floatingInputMessage"> Messagem </label>
+          <label class="bg-transparent" for="floatingInputMessage"> Mensagem </label>
+          <div
+            *ngIf="contactForm.get('message').invalid && contactForm.get('message').touched"
+            class="invalid-feedback"
+          >
+            O campo Mensagem é obrigatório.
+          </div>
         </div>
       </div>
 
-      <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-end">
-        <button type="button" class="btn btn-primary-default" (click)="sendEmail()">Enviar</button>
+      <!-- Mensagens de feedback -->
+      <div class="d-grid mt-2 gap-2 d-md-flex justify-content-md-between">
+        <div class="feedback-messages">
+          <div *ngIf="isShowingAlert && !isErrored" class="feedback-email text-success" role="alert">
+            Sua mensagem foi enviada com sucesso!
+          </div>
+          <div *ngIf="isShowingAlert && isErrored" class="feedback-email text-danger" role="alert">
+            Falha ao enviar sua mensagem!
+          </div>
+        </div>
+        <!-- Botão de enviar -->
+        <button type="submit" class="btn btn-primary-default end-0">Enviar</button>
       </div>
     </form>
   </div>
