@@ -1,5 +1,4 @@
 export class ContactPageModel {
-  emailToSend: string;
   linkMaps: string;
   whatsapp: string;
   whatsappMessage: string;
