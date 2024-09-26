@@ -1,6 +1,6 @@
 <ng-container *ngFor="let data of dataDisplay; let i = index">
   <ng-container *ngIf="data.alignment === ALIGN_ENUM.LEFT; else alignmentEnd">
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center mb-5">
       <div class="detail-image align-left col-6">
         <img class="service-image w-100" [src]="getImageUrl(data.images)" alt="" />
       </div>

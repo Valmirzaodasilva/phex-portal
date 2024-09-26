@@ -1,6 +1,6 @@
 .card.align-left {
   background-color: white;
-  left: -20px;
+  left: -40px;
 }
 
 .card.align-right {
@@ -16,6 +16,7 @@
 }
 
 .detail-image {
+  max-height: 300px;
   position: relative;
 }
 
