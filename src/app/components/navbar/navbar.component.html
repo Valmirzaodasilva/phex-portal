@@ -39,6 +39,16 @@
           >
         </li>
 
+        <li class="nav-item" *ngIf="isDisplayCoveragePage">
+          <a
+            class="nav-link fs-5 fw-bolder"
+            [class.active]="menuActive === menuCoveragePage.id.toString()"
+            aria-current="page"
+            (click)="changeMenuActive(menuCoveragePage)"
+            >ABRANGÊNCIA</a
+          >
+        </li>
+
         <div ngbDropdown class="d-inline-block">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto gap-4">
             <li class="nav-item">

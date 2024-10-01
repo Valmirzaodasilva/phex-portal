@@ -11,7 +11,7 @@ export class NavigationMenuSSWModel {
   menuPortalUrl: string;
 }
 
-export class NavigationMenuContactPage {
+export class NavigationAdditionalMenuPage {
   id: number;
   name: string;
   url: string;

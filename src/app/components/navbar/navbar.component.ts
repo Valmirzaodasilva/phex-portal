@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import {
-  NavigationMenuContactPage,
+  NavigationAdditionalMenuPage,
   NavigationMenuModel,
   NavigationMenuSSWModel,
 } from 'src/app/shared/models/navigation-menu.model';
@@ -17,13 +17,22 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public menus: Array<NavigationMenuModel> = [];
   public menusSSW: Array<NavigationMenuSSWModel> = [];
   public menuActive: string;
-  public menuContactPage: NavigationMenuContactPage = {
+  public menuContactPage: NavigationAdditionalMenuPage = {
     id: 878787,
-    name: 'Contatos ',
+    name: 'Contatos',
     url: 'contatos',
     idDynamicPage: 0,
   };
+
+  public menuCoveragePage: NavigationAdditionalMenuPage = {
+    id: 888888,
+    name: 'Abrangência',
+    url: 'abrangencia',
+    idDynamicPage: 0,
+  };
+
   public isDisplayContactPage = false;
+  public isDisplayCoveragePage = false;
 
   private subscriptions = new Subscription();
 
@@ -51,6 +60,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.headerService.configPortal$.subscribe((configPortal) => {
         this.isDisplayContactPage = configPortal.displayContactsPage;
+        this.isDisplayCoveragePage = configPortal.displayCoveragePage;
       })
     );
   }

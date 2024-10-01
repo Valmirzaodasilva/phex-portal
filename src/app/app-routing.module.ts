@@ -7,6 +7,7 @@ import { DynamicPage } from './pages/dynamic/dynamic.page';
 import { NotFoundPage } from './pages/not-found/not-found.page';
 import { SearchSSWPage } from './pages/search-ssw/search-ssw.page';
 import { ContactPage } from './pages/contact/contact.page';
+import { CoveragePage } from './pages/coverage/coverage.page';
 
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
     path: 'contatos',
     component: ContactPage,
     data: { menu: { id: 878787, name: 'Contatos', url: 'contatos' } },
+  },
+  {
+    path: 'abrangencia',
+    component: CoveragePage,
+    data: { menu: { id: 888888, name: 'Abrangência', url: 'abrangencia' } },
   },
   {
     path: '**',

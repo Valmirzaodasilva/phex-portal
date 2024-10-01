@@ -26,6 +26,7 @@ import { SearchSSWPage } from './pages/search-ssw/search-ssw.page';
 import { InputsComponent } from './components/inputs/inputs.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { CoveragePage } from './pages/coverage/coverage.page';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CommonModule } from '@angular/common';
     DynamicPage,
     SearchSSWPage,
     ContactPage,
+    CoveragePage,
     FooterComponent,
     ServiceCardComponent,
     TitleComponent,
