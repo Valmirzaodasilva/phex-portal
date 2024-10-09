@@ -21,7 +21,8 @@ export class BrazilMapComponent implements OnInit, OnChanges {
   currentPage = 1;
   pageSize = 10;
 
-  stateSelected = ''
+  stateSelected = '';
+  hasNotFoundDataAreaView = false;
 
   constructor(
     private http: HttpClient,
@@ -142,10 +143,16 @@ export class BrazilMapComponent implements OnInit, OnChanges {
             this.currentPage = 1; // Reset to first page whenever new data is loaded
             this.areasData = this.xmlSanitizerService.parseXml(xmlsr.innerHTML);
             this.areaDataView = this.paginatedAreasData; // Update areaDataView
-            this.loadingService.hide();
+            this.hasNotFoundDataAreaView = false;
+          } else {
+            this.areaDataView = null; // Update areaDataView
+            this.hasNotFoundDataAreaView = true;
+            console.log('Elemento não encontrado'); // Elemento não encontrado
           }
+          this.loadingService.hide();
         } catch (e) {
           this.areaDataView = this.paginatedAreasData; // Update areaDataView
+          this.hasNotFoundDataAreaView = true;
           console.log('Resposta não é JSON:', data); // Resposta HTML ou outro formato
           this.loadingService.hide();
         }

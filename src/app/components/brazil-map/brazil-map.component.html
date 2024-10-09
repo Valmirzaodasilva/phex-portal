@@ -1,7 +1,7 @@
 <div id="brazilMap" echarts class="echart"></div>
 
 <div *ngIf="areaDataView">
-  <div>Estado Selecionado: {{ stateSelected }}</div>
+  <div class="bg-secondary p-2 text-white">Estado Selecionado: {{ stateSelected }}</div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -43,7 +43,7 @@
   </table>
 </div>
 
-<div *ngIf="areasData && areasData.length > 0">
+<div *ngIf="areaDataView && areaDataView.length > 0">
   <ngb-pagination
     size="sm"
     [(page)]="currentPage"
@@ -56,3 +56,9 @@
     class="custom-style"
   />
 </div>
+
+<ng-container *ngIf="hasNotFoundDataAreaView">
+  <div class="alert alert-warning" role="alert">
+    Nenhuma área selecionada ou dados não disponíveis para {{ stateSelected }}
+  </div>
+</ng-container>
