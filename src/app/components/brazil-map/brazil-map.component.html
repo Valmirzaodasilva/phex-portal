@@ -1,1 +1,44 @@
 <div id="brazilMap" echarts class="echart"></div>
+
+<div *ngIf="areaDataView">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Cidade Destino</th>
+        <th scope="col">Prazo (dias úteis)</th>
+        <th scope="col">Frete CIF</th>
+        <th scope="col">Frete FOB</th>
+        <th scope="col">TDA</th>
+        <th scope="col">Dias da Semana (Entrega)</th>
+        <th scope="col">Entregue pela Unidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let area of areaDataView">
+        <td>{{ area.cidade }}</td>
+        <td>{{ area.prazo }}</td>
+        <td>{{ area.cif }}</td>
+        <td>{{ area.fob }}</td>
+        <td>{{ area.tda }}</td>
+        <td>
+          <span *ngFor="let dia of area.diasemana" [style.color]="dia.color">{{ dia.text }}</span>
+        </td>
+        <td>{{ area.centra }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="areasData && areasData.length > 0">
+  <ngb-pagination
+    size="sm"
+    [(page)]="currentPage"
+    [collectionSize]="areasData.length"
+    [maxSize]="10"
+    [pageSize]="pageSize"
+    [rotate]="true"
+    [boundaryLinks]="true"
+    (pageChange)="onPageChange($event)"
+    class="custom-style"
+  />
+</div>
