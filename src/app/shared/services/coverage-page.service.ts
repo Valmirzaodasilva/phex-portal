@@ -19,7 +19,7 @@ export class CoveragePageService {
     formData.append('cidadedes', '');
     formData.append('type', 'uf');
     formData.append('co', 'CUIABA / MT');
-    formData.append('ufe', this.getUfe(uf));
+    formData.append('ufe', uf);
 
     // Remova o cabeçalho Content-Type para deixar o Angular configurá-lo automaticamente
     const url = `${this.apiUrlSSW}/2/areas`;

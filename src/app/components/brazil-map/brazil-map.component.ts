@@ -1,10 +1,11 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { CoveragePageService } from 'src/app/shared/services/coverage-page.service';
 import { XmlSanitizerService } from 'src/app/shared/services/xml-sanitizer.service';
 import { states } from 'src/assets/utils/states';
 import * as echarts from 'echarts';
 import { LoadingService } from 'src/app/shared/services/loading.service';
+import { text } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-brazil-map',
@@ -19,6 +20,8 @@ export class BrazilMapComponent implements OnInit, OnChanges {
 
   currentPage = 1;
   pageSize = 10;
+
+  stateSelected = ''
 
   constructor(
     private http: HttpClient,
@@ -35,14 +38,33 @@ export class BrazilMapComponent implements OnInit, OnChanges {
       // Decrease height by 200px
       this.chartOptions = {
         title: {
-          text: 'Mapa do Brasil com Estados',
+          text: 'Selecione um estado para consultar as áreas atendidas',
+          left: 'center',
         },
+
         tooltip: {
           trigger: 'item',
           formatter: '{b}',
         },
 
-        color: ['#b2ff00'],
+        visualMap: {
+          show: false,
+          min: 100, // SET 0 para ranges
+          max: 100,
+          inRange: {
+            color: ['#2d4b7b', '#2d4b7b'],
+          },
+          outOfRange: {
+            color: ['#ff0000'], // Color for areas that are clicked
+          },
+          textStyle: {
+            color: 'white',
+          },
+          itemStyle: {
+            areaColor: '#ff0000', // Change the color of the states when hovered
+          },
+        },
+
         series: [
           {
             type: 'map',
@@ -50,8 +72,11 @@ export class BrazilMapComponent implements OnInit, OnChanges {
             label: {
               show: false,
             },
+
             itemStyle: {
-              areaColor: '#fcfcfc', // Change the color of the states
+              areaColor: '#2d4b7b', // Change the color of the states
+              borderColor: 'white', // Border color of the states
+              color: 'white',
             },
 
             emphasis: {
@@ -62,10 +87,27 @@ export class BrazilMapComponent implements OnInit, OnChanges {
                 areaColor: '#ff0000', // Change the color of the states when hovered
               },
             },
+
+            select: {
+              label: {
+                show: true,
+                color: 'white', // Change the color of the selected state text to white
+                // position: [0, 0], // Add  position on the x/y-axis
+                // backgroundColor: '#00000020', // Change the color of the selected state text to white
+                // padding: 5,
+                // borderRadius: 5,
+              },
+              itemStyle: {
+                areaColor: '#ff0000', // Change the color of the selected state
+              },
+            },
+            selectedMode: 'single',
             aspectScale: 1,
             data: states,
           },
         ],
+
+        color: ['#ff00ea'], // Border color of the states
       };
 
       const chartDom = document.getElementById('brazilMap')!;
@@ -89,14 +131,14 @@ export class BrazilMapComponent implements OnInit, OnChanges {
   }
 
   findAreas(uf: string): void {
-    this.coveragePageService.getAreas(uf).subscribe(
+    this.stateSelected = this.coveragePageService.getUfe(uf);
+    this.coveragePageService.getAreas(this.stateSelected).subscribe(
       (data) => {
         try {
           const parser = new DOMParser();
           const doc = parser.parseFromString(data, 'text/html');
           const xmlsr = doc.getElementById('xmlsr');
           if (xmlsr) {
-            console.log('Parsed XML:', this.xmlSanitizerService.parseXml(xmlsr.innerHTML));
             this.currentPage = 1; // Reset to first page whenever new data is loaded
             this.areasData = this.xmlSanitizerService.parseXml(xmlsr.innerHTML);
             this.areaDataView = this.paginatedAreasData; // Update areaDataView
