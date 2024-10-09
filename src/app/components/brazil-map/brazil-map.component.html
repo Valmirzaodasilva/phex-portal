@@ -1,64 +1,70 @@
-<div id="brazilMap" echarts class="echart"></div>
-
-<div *ngIf="areaDataView">
-  <div class="bg-secondary p-2 text-white">Estado Selecionado: {{ stateSelected }}</div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">Cidade Destino</th>
-        <th scope="col">Prazo (dias úteis)</th>
-        <th scope="col">Frete CIF</th>
-        <th scope="col">Frete FOB</th>
-        <th scope="col">TDA</th>
-        <th scope="col">Dias da Semana (Entrega)</th>
-        <th scope="col">Entregue pela Unidade</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let area of areaDataView">
-        <td>{{ area.cidade }}</td>
-        <td>{{ area.prazo }}</td>
-        <td>{{ area.cif }}</td>
-        <td>{{ area.fob }}</td>
-        <td>{{ area.tda }}</td>
-        <td>
-          <span *ngFor="let dia of area.diasemana" [style.color]="dia.color">{{ dia.text }}</span>
-        </td>
-        <td>{{ area.centra }}</td>
-      </tr>
-
-      <!-- AJUSTE PARA COMPLETAR OS CAMPOS VAZIOS DA PAGINAÇÂO -->
-      <ng-container *ngIf="areaDataView.length < pageSize">
-        <tr *ngFor="let item of [].constructor(pageSize - areaDataView.length)">
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-        </tr>
-      </ng-container>
-    </tbody>
-  </table>
-</div>
-
-<div *ngIf="areaDataView && areaDataView.length > 0">
-  <ngb-pagination
-    size="sm"
-    [(page)]="currentPage"
-    [collectionSize]="areasData.length"
-    [maxSize]="10"
-    [pageSize]="pageSize"
-    [rotate]="true"
-    [boundaryLinks]="true"
-    (pageChange)="onPageChange($event)"
-    class="custom-style"
-  />
-</div>
-
-<ng-container *ngIf="hasNotFoundDataAreaView">
-  <div class="alert alert-warning" role="alert">
-    Nenhuma área selecionada ou dados não disponíveis para {{ stateSelected }}
+<div class="row">
+  <div class="col-12 col-lg-6">
+    <div id="brazilMap" echarts class="echart"></div>
   </div>
-</ng-container>
+
+  <div class="col-lg-6">
+    <div *ngIf="areaDataView">
+      <div class="bg-secondary p-2 text-white">Estado Selecionado: {{ stateSelected }}</div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" class="align-top">Cidade Destino</th>
+            <th scope="col" class="align-top">Prazo (Dias Úteis)</th>
+            <th scope="col" class="align-top">Frete CIF</th>
+            <th scope="col" class="align-top">Frete FOB</th>
+            <th scope="col" class="align-top">TDA</th>
+            <th scope="col" class="align-top">Dias da Semana (Entrega)</th>
+            <th scope="col" class="align-top">Entregue pela Unidade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let area of areaDataView">
+            <td>{{ area.cidade }}</td>
+            <td>{{ area.prazo }}</td>
+            <td>{{ area.cif }}</td>
+            <td>{{ area.fob }}</td>
+            <td>{{ area.tda }}</td>
+            <td>
+              <span *ngFor="let dia of area.diasemana" [style.color]="dia.color">{{ dia.text }}</span>
+            </td>
+            <td>{{ area.centra }}</td>
+          </tr>
+
+          <!-- AJUSTE PARA COMPLETAR OS CAMPOS VAZIOS DA PAGINAÇÂO -->
+          <ng-container *ngIf="areaDataView.length < pageSize">
+            <tr *ngFor="let item of [].constructor(pageSize - areaDataView.length)">
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="areaDataView && areaDataView.length > 0">
+      <ngb-pagination
+        size="sm"
+        [(page)]="currentPage"
+        [collectionSize]="areasData.length"
+        [maxSize]="10"
+        [pageSize]="pageSize"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="onPageChange($event)"
+        class="custom-style"
+      />
+    </div>
+
+    <ng-container *ngIf="hasNotFoundDataAreaView">
+      <div class="alert alert-warning" role="alert">
+        Nenhuma área selecionada ou dados não disponíveis para {{ stateSelected }}
+      </div>
+    </ng-container>
+  </div>
+</div>
