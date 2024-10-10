@@ -39,8 +39,13 @@ export class BrazilMapComponent implements OnInit, OnChanges {
       // Decrease height by 200px
       this.chartOptions = {
         title: {
-          text: 'Selecione um estado para consultar as áreas atendidas',
+          text: 'SELECIONE UM ESTADO PARA CONSULTAR AS ÁREAS ATENDIDAS',
           left: 'center',
+          textStyle: {
+            color: '#6f93cd',
+            fontFamily: '"Fira Sans Condensed", sans-serif',
+            fontWeight: 400,
+          },
         },
 
         tooltip: {
