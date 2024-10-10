@@ -10,8 +10,6 @@ import { HeaderService } from 'src/app/shared/services/header.service';
   styleUrls: ['./coverage.page.scss'],
 })
 export class CoveragePage implements OnInit {
-  public coveragePageData: any; // TODO: Create a model for this data
-
   private data?: NavigationMenuModel;
 
   constructor(
