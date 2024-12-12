@@ -52,6 +52,29 @@
         <div ngbDropdown class="d-inline-block">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto gap-4">
             <li class="nav-item">
+              <a id="dropdownBasic1" class="nav-link fsize-4 fw-bolder" aria-current="page" ngbDropdownToggle
+                >CONSULTAS</a
+              >
+            </li>
+          </ul>
+
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem *ngFor="let menu of menusSSWStatic">
+              <a class="d-flex justify-content-between" [href]="menu.menuPortalUrl" target="_blank">
+                {{ menu.menuPortalName }}
+                <fa-icon
+                class="ms-2"
+                [icon]="faIconExternalLink"
+              ></fa-icon>
+              </a>
+            </button>
+          </div>
+        </div>
+
+        <!--  TODO: UTILIZADO PARA MENUS DINAMICOS DO SSW -->
+        <!-- <div ngbDropdown class="d-inline-block">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 m-auto gap-4">
+            <li class="nav-item">
               <a id="dropdownBasic1" class="nav-link fsize-4 fw-bolder" aria-current="page" ngbDropdownToggle>CONSULTAS</a>
             </li>
           </ul>
@@ -60,7 +83,7 @@
               {{ menu.menuPortalName }}
             </button>
           </div>
-        </div>
+        </div> -->
       </ul>
     </div>
   </div>

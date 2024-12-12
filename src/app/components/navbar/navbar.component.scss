@@ -22,3 +22,12 @@ ul {
 .navbar-brand img {
   width: 120px;
 }
+
+a {
+  color: var(--primary-light-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { faShare } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'rxjs';
 import {
   NavigationAdditionalMenuPage,
@@ -24,12 +25,17 @@ export class NavbarComponent implements OnInit, OnDestroy {
     idDynamicPage: 0,
   };
 
+  // TODO: REMOVER QUANDO MENUS SSW FOREM DINÂMICOS
+  public menusSSWStatic: Array<NavigationMenuSSWModel> = [];
+
   public menuCoveragePage: NavigationAdditionalMenuPage = {
     id: 888888,
     name: 'Abrangência',
     url: 'abrangencia',
     idDynamicPage: 0,
   };
+
+  faIconExternalLink = faShare;
 
   public isDisplayContactPage = false;
   public isDisplayCoveragePage = false;
@@ -39,17 +45,52 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private headerService: HeaderService) {}
 
   ngOnInit(): void {
+    // TODO: REMOVER QUANDO MENUS SSW FOREM DINÂMICOS
+    this.menusSSWStatic = [
+      {
+        id: 25001,
+        menuPortalName: 'Rastreamento',
+        menuPortalUrl: 'https://ssw.inf.br/2/rastreamento_danfe',
+      },
+      {
+        id: 25001,
+        menuPortalName: 'Áreas atendidas',
+        menuPortalUrl: 'https://ssw.inf.br/2/areas?sigla_emp=PHX',
+      },
+      {
+        id: 25001,
+        menuPortalName: 'Cotação',
+        menuPortalUrl: 'https://ssw.inf.br/2/cotacao?sigla_emp=PHX',
+      },
+      {
+        id: 25001,
+        menuPortalName: 'Solicitar coleta',
+        menuPortalUrl: 'https://ssw.inf.br/2/coleta?sigla_emp=PHX',
+      },
+      {
+        id: 25001,
+        menuPortalName: 'Solicitar coleta',
+        menuPortalUrl: 'https://ssw.inf.br/2/tde?s=PHX',
+      },
+      {
+        id: 25001,
+        menuPortalName: 'Serviços',
+        menuPortalUrl: 'https://ssw.inf.br/2/servicos?sigla_emp=PHX',
+      },
+    ];
+
     this.subscriptions.add(
       this.headerService.menuList$.subscribe((navigationMenu) => {
         this.menus = navigationMenu;
       })
     );
 
-    this.subscriptions.add(
-      this.headerService.menuListSSW$.subscribe((navigationMenu) => {
-        this.menusSSW = navigationMenu;
-      })
-    );
+    // TODO: QUANDO REMOVER QUANDO MENUS SSW FOREM STATICOS
+    // this.subscriptions.add(
+    //   this.headerService.menuListSSW$.subscribe((navigationMenu) => {
+    //     this.menusSSW = navigationMenu;
+    //   })
+    // );
 
     this.subscriptions.add(
       this.headerService.menuActive$.subscribe((menuActive) => {
