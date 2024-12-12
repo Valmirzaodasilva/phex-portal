@@ -25,9 +25,9 @@
           [size]="dataInputSearchSSW.size"
           [required]="dataInputSearchSSW.required"
           [placeholder]="dataInputSearchSSW.description"
-          [formControlName]="dataInputSearchSSW.name"
           [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-        />
+          (change)="setValueInput($event)"
+          />
         <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
           {{ dataInputSearchSSW.description }}
         </label>
@@ -48,9 +48,9 @@
           [size]="dataInputSearchSSW.size"
           [required]="dataInputSearchSSW.required"
           [placeholder]="dataInputSearchSSW.description"
-          [formControlName]="dataInputSearchSSW.name"
           [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-        ></textarea>
+          (change)="setValueInput($event)"
+          ></textarea>
         <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
           {{ dataInputSearchSSW.description }}
         </label>
@@ -71,9 +71,9 @@
             [size]="dataInputSearchSSW.size"
             [required]="dataInputSearchSSW.required"
             [placeholder]="dataInputSearchSSW.description"
-            [formControlName]="dataInputSearchSSW.name"
             [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-          />
+            (change)="setValueInput($event)"
+            />
           <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
             {{ dataInputSearchSSW.description }}
           </label>
@@ -95,9 +95,9 @@
             [size]="dataInputSearchSSW.size"
             [required]="dataInputSearchSSW.required"
             [placeholder]="dataInputSearchSSW.description"
-            [formControlName]="dataInputSearchSSW.name"
             [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-          />
+            (change)="setValueInput($event)"
+            />
           <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
             {{ dataInputSearchSSW.description }}
           </label>
@@ -119,9 +119,9 @@
             [size]="dataInputSearchSSW.size"
             [required]="dataInputSearchSSW.required"
             [placeholder]="dataInputSearchSSW.description"
-            [formControlName]="dataInputSearchSSW.name"
             [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-          />
+            (change)="setValueInput($event)"
+            />
           <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
             {{ dataInputSearchSSW.description }}
           </label>
@@ -143,9 +143,9 @@
             [size]="dataInputSearchSSW.size"
             [required]="dataInputSearchSSW.required"
             [placeholder]="dataInputSearchSSW.description"
-            [formControlName]="dataInputSearchSSW.name"
             [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-          />
+            (change)="setValueInput($event)"
+            />
           <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
             {{ dataInputSearchSSW.description }}
           </label>
@@ -167,9 +167,9 @@
             [size]="dataInputSearchSSW.size"
             [required]="dataInputSearchSSW.required"
             [placeholder]="dataInputSearchSSW.description"
-            [formControlName]="dataInputSearchSSW.name"
             [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-          />
+            (change)="setValueInput($event)"
+            />
           <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
             {{ dataInputSearchSSW.description }}
           </label>
@@ -191,9 +191,9 @@
             [size]="dataInputSearchSSW.size"
             [required]="dataInputSearchSSW.required"
             [placeholder]="dataInputSearchSSW.description"
-            [formControlName]="dataInputSearchSSW.name"
             [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-          />
+            (change)="setValueInput($event)"
+            />
           <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
             {{ dataInputSearchSSW.description }}
           </label>
@@ -215,9 +215,9 @@
             [size]="dataInputSearchSSW.size"
             [required]="dataInputSearchSSW.required"
             [placeholder]="dataInputSearchSSW.description"
-            [formControlName]="dataInputSearchSSW.name"
             [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-          />
+            (change)="setValueInput($event)"
+            />
           <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
             {{ dataInputSearchSSW.description }}
           </label>
@@ -239,9 +239,9 @@
             [size]="dataInputSearchSSW.size"
             [required]="dataInputSearchSSW.required"
             [placeholder]="dataInputSearchSSW.description"
-            [formControlName]="dataInputSearchSSW.name"
             [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-          />
+            (change)="setValueInput($event)"
+            />
           <label class="bg-transparent" [for]="'floatingInput' + dataInputSearchSSW.name">
             {{ dataInputSearchSSW.description }}
           </label>
@@ -261,9 +261,9 @@
             [name]="dataInputSearchSSW.name"
             [size]="dataInputSearchSSW.size"
             [required]="dataInputSearchSSW.required"
-            [formControlName]="dataInputSearchSSW.name"
             [ngClass]="{ 'ng-invalid': submitted && searchForm.get(dataInputSearchSSW.name).invalid }"
-          >
+            (change)="setValueInput($event)"
+            >
             <option value="" disabled selected>{{ dataInputSearchSSW.description }}</option>
             <option *ngFor="let option of dataInputSearchSSW.options" [value]="option.value">{{ option.label }}</option>
           </select>

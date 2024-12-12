@@ -1,10 +1,12 @@
 <div class="mt-5 p-5" *ngIf="searchSSWPageData">
   <h5 class="title text-primary mb-3">{{ searchSSWPageData.title }}</h5>
 
-  <form [formGroup]="searchForm" (ngSubmit)="searchSSW($event)">
+  <form (ngSubmit)="searchSSW($event)">
     <ng-container *ngFor="let input of inputsSSW">
-      <app-inputs [dataInputSearchSSW]="input"></app-inputs>
+      <app-inputs [dataInputSearchSSW]="input" (valueInput)="input.value = $event"></app-inputs>
     </ng-container>
+
+    <p class="text-secondary">{{msgError}}</p>
 
     <div class="d-flex justify-content-{{ getAlign(searchSSWPageData.buttonAlignments) }} mt-5 gap-3">
       <button

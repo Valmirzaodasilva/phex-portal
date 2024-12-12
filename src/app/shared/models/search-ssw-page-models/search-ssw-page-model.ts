@@ -15,6 +15,8 @@ export class SearchSSWPageModel {
   inputSSW?: InputSearchModel[];
   menuPortalName?: string;
   menuPortalUrl?: string;
+
+  value?: any; // DOC: VALOR DO INPUT UTILIZADO SOMENTE NO FRONT
 }
 
 export class InputSearchModel {

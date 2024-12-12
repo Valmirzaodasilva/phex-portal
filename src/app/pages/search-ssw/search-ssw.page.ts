@@ -22,7 +22,10 @@ export class SearchSSWPage implements OnInit {
 
   inputsSSW: InputSearchModel[];
 
+  // TODO: VERIFICAR USO
   searchForm: FormGroup;
+
+  msgError = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -46,9 +49,18 @@ export class SearchSSWPage implements OnInit {
     }
   }
 
-  searchSSW(): void {
+  searchSSW(event): void {
     // TODO: Implement search
-    console.log('(this.searchForm.valid', this.searchForm.valid);
+    console.log('(this.searchForm.valid', this.searchSSWPageData);
+
+    this.searchSSWPageService.searchSSW(this.searchSSWPageData?.endpoint, this.searchForm.value).subscribe((data) => {
+
+        if (!data?.success) {
+          this.msgError = data?.message;
+        }
+      console.log('searchSSW====', data);
+    });
+
     // this.searchForm.markAllAsTouched();
     // if (this.searchForm.valid) {
     //   // Form is valid, perform search

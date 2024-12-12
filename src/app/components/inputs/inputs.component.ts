@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { INPUT_TYPE_ENUM } from 'src/app/shared/models/input-type.enum';
 import { InputSearchModel } from 'src/app/shared/models/search-ssw-page-models/search-ssw-page-model';
 
@@ -10,10 +10,16 @@ import { InputSearchModel } from 'src/app/shared/models/search-ssw-page-models/s
 export class InputsComponent {
   @Input() dataInputSearchSSW: InputSearchModel;
 
+  @Output() valueInput: EventEmitter<any> = new EventEmitter();
+
+  setValueInput(event: any): void {
+    this.valueInput.emit(event.target.value);
+  }
+
   get isInputTypeText(): boolean {
     return this.dataInputSearchSSW.type === INPUT_TYPE_ENUM.TEXT;
   }
-  
+
   get isInputTypeTextarea(): boolean {
     return this.dataInputSearchSSW.type === INPUT_TYPE_ENUM.TEXTAREA;
   }
