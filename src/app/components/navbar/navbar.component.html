@@ -60,13 +60,7 @@
 
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <button ngbDropdownItem *ngFor="let menu of menusSSWStatic">
-              <a class="d-flex justify-content-between" [href]="menu.menuPortalUrl" target="_blank">
-                {{ menu.menuPortalName }}
-                <fa-icon
-                class="ms-2"
-                [icon]="faIconExternalLink"
-              ></fa-icon>
-              </a>
+              <app-provisional-ssw-modal [menu]="menu"></app-provisional-ssw-modal>
             </button>
           </div>
         </div>

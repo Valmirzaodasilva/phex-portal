@@ -50,32 +50,27 @@ export class NavbarComponent implements OnInit, OnDestroy {
       {
         id: 25001,
         menuPortalName: 'Rastreamento',
-        menuPortalUrl: 'https://ssw.inf.br/2/rastreamento_danfe',
+        menuPortalUrl: 'https://ssw.inf.br/2/rastreamento?sc=N&sl=N&sigla_emp=PHX',
       },
       {
         id: 25001,
         menuPortalName: 'Áreas atendidas',
-        menuPortalUrl: 'https://ssw.inf.br/2/areas?sigla_emp=PHX',
+        menuPortalUrl: 'https://ssw.inf.br/2/areas?sc=N&sl=N&sigla_emp=PHX',
       },
       {
         id: 25001,
         menuPortalName: 'Cotação',
-        menuPortalUrl: 'https://ssw.inf.br/2/cotacao?sigla_emp=PHX',
+        menuPortalUrl: 'https://ssw.inf.br/2/cotacao?sc=N&sl=N&sigla_emp=PHX',
       },
       {
         id: 25001,
         menuPortalName: 'Solicitar coleta',
-        menuPortalUrl: 'https://ssw.inf.br/2/coleta?sigla_emp=PHX',
-      },
-      {
-        id: 25001,
-        menuPortalName: 'Solicitar coleta',
-        menuPortalUrl: 'https://ssw.inf.br/2/tde?s=PHX',
+        menuPortalUrl: 'https://ssw.inf.br/2/coleta?sc=N&sl=N&sigla_emp=PHX',
       },
       {
         id: 25001,
         menuPortalName: 'Serviços',
-        menuPortalUrl: 'https://ssw.inf.br/2/servicos?sigla_emp=PHX',
+        menuPortalUrl: 'https://ssw.inf.br/2/servico?sc=N&sl=N&sigla_emp=PHX',
       },
     ];
 

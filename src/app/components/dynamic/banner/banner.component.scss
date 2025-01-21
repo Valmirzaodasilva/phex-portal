@@ -11,3 +11,13 @@
 .carousel-caption {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
+
+::ng-deep {
+  .picsum-img-wrapper {
+    height: 100vh !important;
+  }
+
+  .carousel-inner {
+    margin: -20px !important;
+  }
+}

@@ -1,0 +1,13 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ menu.menuPortalName }}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+
+  <iframe #meuIframe [src]="safeUrl" frameborder="0"></iframe>
+</ng-template>
+
+<a class="d-flex justify-content-between" (click)="open(content)">
+  {{ menu.menuPortalName }}
+  <fa-icon class="ms-2" [icon]="faIconExternalLink"></fa-icon>
+</a>
