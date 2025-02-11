@@ -8,7 +8,7 @@
     "start": "npm run config -- --environment=dev && ng serve --open --port=4200 --proxy-config proxy.conf.js",
     "start-prod": "npm run config -- --environment=dev && ng serve --prod --open",
     "build": "npm run config -- --environment=dev && ng build",
-    "build-prod": "npm run config -- --environment=prod && ng build --prod",
+    "build-prod": "npm run config -- --environment=prod && ng build",
     "build-hlg": "ng build --output-path docs --base-href /phex-portal/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

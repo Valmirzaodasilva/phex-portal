@@ -39,7 +39,7 @@ const environmentFileContent = `
   export const environment = {
     production: ${isProduction},
     apiUrl: '${isProduction ? process.env['ROOT_PATH_PROD'] : process.env['ROOT_PATH_DEV']}',
-    apiUrlSSW: '${process.env['SSW_API_URL']}',
+    apiUrlSSW: '${isProduction ? process.env['SSW_API_URL_PROD'] : process.env['SSW_API_URL']}',
     emailjs_user_id: '${process.env['EMAILJS_USER_ID']}',
     emailjs_template_id: '${process.env['EMAILJS_TEMPLATE_ID']}',
     emailjs_service_id: '${process.env['EMAILJS_SERVICE_ID']}',

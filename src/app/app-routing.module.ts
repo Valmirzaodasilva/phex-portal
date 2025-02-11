@@ -9,7 +9,7 @@ import { SearchSSWPage } from './pages/search-ssw/search-ssw.page';
 import { ContactPage } from './pages/contact/contact.page';
 import { CoveragePage } from './pages/coverage/coverage.page';
 
-const routes: Routes = [
+const initialRoutes: Routes = [
   {
     path: '',
     component: DynamicPage,
@@ -39,13 +39,17 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled' })],
+  imports: [
+    RouterModule.forRoot([], { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled', useHash: true }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule implements OnDestroy {
   private subscriptions = new Subscription();
 
   constructor(private loadingService: LoadingService, private router: Router, private headerService: HeaderService) {
+    this.loadingService.show();
+    const routes = [...initialRoutes];
     this.subscriptions.add(
       this.headerService.menuList$.subscribe((menus) => {
         menus.forEach((menu) => {

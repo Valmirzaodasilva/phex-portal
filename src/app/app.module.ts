@@ -27,7 +27,7 @@ import { InputsComponent } from './components/inputs/inputs.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { CoveragePage } from './pages/coverage/coverage.page';
-import { ProvisionalSswModalComponent } from "./components/provisional-ssw-modal/provisional-ssw-modal.component";
+import { ProvisionalSswModalComponent } from './components/provisional-ssw-modal/provisional-ssw-modal.component';
 
 @NgModule({
   declarations: [
@@ -61,10 +61,10 @@ import { ProvisionalSswModalComponent } from "./components/provisional-ssw-modal
     HttpClientModule,
     FontAwesomeModule,
     NgxEchartsModule.forRoot({
-        echarts: () => import('echarts'),
+      echarts: () => import('echarts'),
     }),
-    ProvisionalSswModalComponent
-],
+    ProvisionalSswModalComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
