@@ -40,7 +40,7 @@ const initialRoutes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot([], { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled', useHash: true }),
+    RouterModule.forRoot(initialRoutes, { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled', useHash: true }),
   ],
   exports: [RouterModule],
 })
@@ -78,3 +78,5 @@ export class AppRoutingModule implements OnDestroy {
     this.subscriptions.unsubscribe();
   }
 }
+
+
