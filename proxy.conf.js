@@ -1,8 +1,8 @@
 const proxy = [
   {
     context: "/api",
-    // target: "http://localhost:3030",
-    target: "https://srv779085.hstgr.cloud:3000",
+    target: "http://localhost:3030",
+    // target: "https://srv779085.hstgr.cloud:3000", // CONFI PARA RODAR LOCALMENTE
     pathRewrite: { "^/api": "" },
     secure: false,
     changeOrigin: true
