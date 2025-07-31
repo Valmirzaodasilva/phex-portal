@@ -1,28 +1,38 @@
-name: Deploy to Hostinger via FTP
+name: Build, Tag e Deploy para Hostinger
 
 on:
   push:
     branches:
-      - main
+      - 'release/**'
 
 jobs:
-  deploy:
+  build-tag-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout do código
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build do projeto
+        run: npm run build-prod
+
+      - name: Verificar conteúdo do dist
+        run: ls -R ./dist
+
       - name: Ler versão do package.json
         id: version
         run: |
           VERSION=$(jq -r '.version' package.json)
-          echo "Versão base: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Buscar última tag para essa versão
@@ -33,7 +43,6 @@ jobs:
           echo "Tags existentes:"
           echo "$TAGS"
 
-          # Pega o último sufixo
           LAST=$(echo "$TAGS" | grep "^$VERSION-" | sed "s/^$VERSION-//" | sort -n | tail -n 1)
           if [ -z "$LAST" ]; then
             NEXT=1
@@ -42,7 +51,6 @@ jobs:
           fi
 
           NEW_TAG="$VERSION-$NEXT"
-          echo "Próxima tag: $NEW_TAG"
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
       - name: Criar e enviar tag
@@ -52,15 +60,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag $TAG
           git push origin $TAG
-
-      - name: Instalar dependências
-        run: npm ci
-
-      - name: Build do projeto
-        run: npm run build-prod
-
-      - name: Verificar conteúdo do dist
-        run: ls -R ./dist
 
       - name: Limpar cache de deploy FTP
         run: rm -f .ftp-deploy-sync-state.json
@@ -74,3 +73,17 @@ jobs:
           local-dir: ./dist/phex-portal/
           server-dir: ./
           delete: true
+
+      - name: Fazer merge para main
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RELEASE_BRANCH=$(echo "${GITHUB_REF#refs/heads/}")
+          echo "Fazendo merge de $RELEASE_BRANCH para main"
+          gh auth setup-git
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git checkout main
+          git merge origin/$RELEASE_BRANCH --no-edit
+          git push origin main
