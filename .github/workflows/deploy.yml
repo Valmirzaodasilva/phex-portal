@@ -1,0 +1,76 @@
+name: Deploy to Hostinger via FTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Ler versão do package.json
+        id: version
+        run: |
+          VERSION=$(jq -r '.version' package.json)
+          echo "Versão base: $VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Buscar última tag para essa versão
+        id: get_latest_tag
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          TAGS=$(git ls-remote --tags origin "refs/tags/$VERSION-*" | sed 's/.*\/\///' | sort -V)
+          echo "Tags existentes:"
+          echo "$TAGS"
+
+          # Pega o último sufixo
+          LAST=$(echo "$TAGS" | grep "^$VERSION-" | sed "s/^$VERSION-//" | sort -n | tail -n 1)
+          if [ -z "$LAST" ]; then
+            NEXT=1
+          else
+            NEXT=$((LAST + 1))
+          fi
+
+          NEW_TAG="$VERSION-$NEXT"
+          echo "Próxima tag: $NEW_TAG"
+          echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
+
+      - name: Criar e enviar tag
+        run: |
+          TAG=${{ steps.get_latest_tag.outputs.new_tag }}
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag $TAG
+          git push origin $TAG
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build do projeto
+        run: npm run build-prod
+
+      - name: Verificar conteúdo do dist
+        run: ls -R ./dist
+
+      - name: Limpar cache de deploy FTP
+        run: rm -f .ftp-deploy-sync-state.json
+
+      - name: Deploy via FTP para Hostinger
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/phex-portal/
+          server-dir: ./
+          delete: true
