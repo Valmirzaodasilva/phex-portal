@@ -4,6 +4,7 @@ import { FooterModel } from 'src/app/shared/models/footer.model';
 import { FooterService } from 'src/app/shared/services/footer.service';
 import { IconService } from 'src/app/shared/utils/icon-service';
 import { faX, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { RequestOnloadService } from 'src/app/shared/services/request-onload.service';
 
 @Component({
   selector: 'app-footer',
@@ -20,6 +21,7 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   constructor(
     private iconService: IconService,
+    private requestOnloadService: RequestOnloadService,
     private footerService: FooterService
   ) {}
 
@@ -28,6 +30,7 @@ export class FooterComponent implements OnInit, OnDestroy {
       this.footerService.getFooterData().subscribe((data) => {
         this.dataFooterDisplay = data.response;
         this.getIconLoadedUtils();
+        this.requestOnloadService.addRequestOnloadFinished();
       })
     );
   }

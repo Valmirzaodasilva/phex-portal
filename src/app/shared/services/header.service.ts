@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, forkJoin, Subject } from 'rxjs';
 import { NavigationMenuModel, NavigationMenuSSWModel } from '../models/navigation-menu.model';
 import { HttpClient } from '@angular/common/http'; // Import the 'HttpClient' module
 import { ResponseModel } from '../models/reponse.model';
 import { environment } from 'src/environments/environment';
 import { ConfigPortalModel } from '../models/config-portal.model';
+import { LoadingService } from './loading.service';
+import { RequestOnloadService } from './request-onload.service';
 
 @Injectable({
   providedIn: 'root',
@@ -26,18 +28,32 @@ export class HeaderService {
   private configPortalSubject = new Subject<ConfigPortalModel>();
   public configPortal$ = this.configPortalSubject.asObservable();
 
-  constructor(private http: HttpClient) {
-    this.getNavigationMenu().subscribe((data) => {
-      this.menuListSubject.next(data.response);
-    });
+  constructor(
+    private http: HttpClient,
+    private loadingService: LoadingService,
+    private requestOnloadService: RequestOnloadService
+  ) {
+    this.loadingService.show();
 
-    this.getNavigationMenuSSW().subscribe((data) => {
-      this.menuListSSWSubject.next(data.response);
-    });
-
-    this.getConfigPortal().subscribe((data) => {
-      this.configPortalSubject.next(data.response);
-    });
+    setTimeout(() => {
+      forkJoin({
+        menu: this.getNavigationMenu(),
+        menuSSW: this.getNavigationMenuSSW(),
+        config: this.getConfigPortal(),
+      }).subscribe({
+        next: (results) => {
+          this.menuListSubject.next(results.menu.response);
+          this.menuListSSWSubject.next(results.menuSSW.response);
+          this.configPortalSubject.next(results.config.response);
+        },
+        error: (err) => {
+          console.error('Erro ao carregar os dados:', err);
+        },
+        complete: () => {
+          this.requestOnloadService.addRequestOnloadFinished();
+        },
+      });
+    }, 3000);
   }
 
   setMenuActive(idMenu: string): void {

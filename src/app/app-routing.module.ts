@@ -1,6 +1,5 @@
 import { NgModule, OnDestroy } from '@angular/core';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { LoadingService } from './shared/services/loading.service';
 import { HeaderService } from './shared/services/header.service';
 import { Subscription } from 'rxjs';
 import { DynamicPage } from './pages/dynamic/dynamic.page';
@@ -47,8 +46,7 @@ const initialRoutes: Routes = [
 export class AppRoutingModule implements OnDestroy {
   private subscriptions = new Subscription();
 
-  constructor(private loadingService: LoadingService, private router: Router, private headerService: HeaderService) {
-    this.loadingService.show();
+  constructor(private router: Router, private headerService: HeaderService) {
     const routes = [...initialRoutes];
     this.subscriptions.add(
       this.headerService.menuList$.subscribe((menus) => {
