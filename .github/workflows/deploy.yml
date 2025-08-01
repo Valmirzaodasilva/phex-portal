@@ -54,12 +54,15 @@ jobs:
           echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
       - name: Criar e enviar tag
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           TAG=${{ steps.get_latest_tag.outputs.new_tag }}
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git tag $TAG
-          git push origin $TAG
+          git tag "$TAG"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/Valmirzaodasilva/phex-portal.git
+          git push origin "$TAG"
 
       - name: Limpar cache de deploy FTP
         run: rm -f .ftp-deploy-sync-state.json
@@ -76,13 +79,13 @@ jobs:
 
       - name: Fazer merge para main
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           RELEASE_BRANCH=$(echo "${GITHUB_REF#refs/heads/}")
           echo "Fazendo merge de $RELEASE_BRANCH para main"
-          gh auth setup-git
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/Valmirzaodasilva/phex-portal.git
           git fetch origin main
           git checkout main
           git merge origin/$RELEASE_BRANCH --no-edit
