@@ -29,6 +29,13 @@ import { CommonModule } from '@angular/common';
 import { CoveragePage } from './pages/coverage/coverage.page';
 import { ProvisionalSswModalComponent } from './components/provisional-ssw-modal/provisional-ssw-modal.component';
 
+import { provideHttpClient } from '@angular/common/http'
+import {
+  provideTanStackQuery,
+  QueryClient,
+} from '@tanstack/angular-query-experimental'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +72,7 @@ import { ProvisionalSswModalComponent } from './components/provisional-ssw-modal
     }),
     ProvisionalSswModalComponent,
   ],
-  providers: [],
+  providers: [provideTanStackQuery(new QueryClient())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
