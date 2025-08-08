@@ -10,23 +10,23 @@ export class CoveragePageService {
 
   constructor(private http: HttpClient) {}
 
-  getAreas(uf: string): any {
-    const formData = new FormData();
-    formData.append('sigla_emp', 'PHX');
-    formData.append('find', 'U');
-    formData.append('uf', uf);
-    formData.append('cidadeori', 'CUIABA / MT');
-    formData.append('cidadedes', '');
-    formData.append('type', 'uf');
-    formData.append('co', 'CUIABA / MT');
-    formData.append('ufe', uf);
+  getAreas(uf: string): any { 
+    const body = new URLSearchParams();
+    body.set('sigla_emp', 'PHX');
+    body.set('find', 'U');
+    body.set('uf', uf);
+    body.set('cidadeori', 'CUIABA / MT');
+    body.set('cidadedes', '');
+    body.set('type', 'uf');
+    body.set('co', 'CUIABA / MT');
+    body.set('ufe', uf);
 
-    // Remova o cabeçalho Content-Type para deixar o Angular configurá-lo automaticamente
     const url = `${this.apiUrlSSW}`;
-    console.log('url', url);
 
-    // Enviar o formData diretamente
-    return this.http.post(url, formData, { responseType: 'text' }); // Aqui, mudamos para 'text' para evitar erro de JSON
+    return this.http.post(url, body.toString(), {
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      responseType: 'text'
+    });
   }
 
   getUfe(uf: string): string {
