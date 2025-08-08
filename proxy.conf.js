@@ -9,7 +9,7 @@ const proxy = [
   },
   {
     context: "/ssw",
-    target: "https://ssw.inf.br",
+    target: "https://srv779085.hstgr.cloud/api-ssw-proxy",
     secure: false,
     changeOrigin: true,
     pathRewrite: { "^/ssw": "" },
