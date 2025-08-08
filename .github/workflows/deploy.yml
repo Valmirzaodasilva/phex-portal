@@ -23,6 +23,11 @@ jobs:
       - name: Instalar dependências
         run: npm ci
 
+      - name: Criar arquivo .env no runner
+        run: |
+          echo "ROOT_PATH_PROD=${{ vars.ROOT_PATH_PROD }}" >> .env
+          echo "SSW_API_URL_PROD=${{ vars.SSW_API_URL_PROD }}" >> .env
+
       - name: Build do projeto
         run: npm run build-prod
 
