@@ -22,7 +22,7 @@ export class CoveragePageService {
     formData.append('ufe', uf);
 
     // Remova o cabeçalho Content-Type para deixar o Angular configurá-lo automaticamente
-    const url = `${this.apiUrlSSW}/2/areas`;
+    const url = `${this.apiUrlSSW}`;
     console.log('url', url);
 
     // Enviar o formData diretamente
