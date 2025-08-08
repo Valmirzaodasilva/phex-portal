@@ -1,6 +1,6 @@
 {
   "name": "phex-portal",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "scripts": {
     "ng": "ng",
     "dev": "npm run start",
