@@ -1,8 +1,8 @@
 .custom-container {
-  width: 100vw; /* Full viewport width */
+  width: 100vw;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-top: -3rem; // SIZE OF MARGIN BOTTOM NAVBAR
+  margin-top: -3rem;
   position: relative;
   left: 50%;
   right: 50%;
@@ -15,9 +15,14 @@
 ::ng-deep {
   .picsum-img-wrapper {
     height: 100vh !important;
+    overflow: hidden;
   }
 
-  .carousel-inner {
-    margin: -20px !important;
+  .picsum-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 }
