@@ -43,5 +43,3 @@ Thumbs.db
 
 # Env's private
 .env
-/src/environments/environment.ts
-/src/environments/environment.prod.ts

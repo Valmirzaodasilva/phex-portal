@@ -1,39 +1,25 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ElementWatcherService } from './shared/services/element-watcher.serivce';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { ConfigService } from './core/services/config.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent, FooterComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <div class="min-h-screen flex flex-col">
+      <app-navbar />
+      <main class="flex-1">
+        <router-outlet />
+      </main>
+      <app-footer />
+    </div>
+  `,
+  styles: [],
 })
-export class AppComponent implements OnInit, OnDestroy {
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private elementWatcher: ElementWatcherService
-  ) {}
-
-  ngOnInit() {
-    this.route.fragment.subscribe((fragment: string | null) => {
-      if (fragment) {
-        this.scrollToFragment(fragment);
-      }
-    });
-
-    this.elementWatcher.startWatching();
-  }
-
-  ngOnDestroy() {
-    this.elementWatcher.stopWatching();
-  }
-
-  private scrollToFragment(fragment: string): void {
-    const element = document.getElementById(fragment);
-    setTimeout(() => {
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 3000);
-  }
+export class AppComponent {
+  readonly configService = inject(ConfigService);
 }
