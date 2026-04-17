@@ -11,7 +11,7 @@ import { DataComponent } from '../../../core/models/dynamic-page.model';
     <section class="principles-section">
       <div class="container">
         <div class="cards-grid">
-          @for (item of data; track item.id) {
+          @for (item of data; track $index) {
             <div class="principle-card animate-slideUp">
               @if (item.icon) {
                 <div class="card-icon-wrap">

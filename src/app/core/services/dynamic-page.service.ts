@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Observable, map, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { DynamicPageData } from '../models/dynamic-page.model';
 import { ResponseModel } from '../models/response.model';
@@ -13,7 +13,13 @@ export class DynamicPageService {
 
   getDynamicPageData(id: number): Observable<DynamicPageData> {
     return this.http.get<ResponseModel<DynamicPageData[]>>(`${this.apiUrl}/${id}`).pipe(
-      map(res => res.response?.[0])
+      map(res => {
+        const data = res.response?.[0];
+        if (!data) {
+          throw new Error(`No page data found for id: ${id}`);
+        }
+        return data;
+      })
     );
   }
 }

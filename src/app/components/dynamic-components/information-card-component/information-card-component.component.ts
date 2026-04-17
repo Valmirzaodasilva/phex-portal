@@ -11,7 +11,7 @@ import { DataComponent } from '../../../core/models/dynamic-page.model';
     <section class="info-section">
       <div class="container">
         <div class="info-grid">
-          @for (item of data; track item.id) {
+          @for (item of data; track $index) {
             <div class="info-card">
               @if (item.icon) {
                 <div class="info-icon-wrap">

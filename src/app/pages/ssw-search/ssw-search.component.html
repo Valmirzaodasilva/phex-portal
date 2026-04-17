@@ -14,7 +14,7 @@
         @if (searchForm) {
           <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="ssw-form">
             <div class="ssw-inputs">
-              @for (input of pageData()!.inputSSW; track input.name) {
+              @for (input of pageData()!.inputSSW; track $index) {
                 <div class="form-group" [style.flex]="'0 0 ' + (input.screenSize || 100) + '%'">
                   <label class="form-label" [for]="input.name">
                     {{ input.description }}

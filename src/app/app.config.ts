@@ -1,7 +1,7 @@
 import { ApplicationConfig, APP_INITIALIZER } from '@angular/core';
 import { provideRouter, withPreloading, PreloadAllModules } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
 import { PortalService } from './core/services/portal.service';
 
@@ -13,7 +13,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, withPreloading(PreloadAllModules)),
     provideHttpClient(),
-    provideAnimations(),
+    provideAnimationsAsync(),
     {
       provide: APP_INITIALIZER,
       useFactory: initializeApp,

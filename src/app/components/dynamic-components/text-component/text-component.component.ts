@@ -9,7 +9,7 @@ import { DataComponent } from '../../../core/models/dynamic-page.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="text-comp container" [style.text-align]="getAlign()">
-      @for (item of data; track item.id) {
+      @for (item of data; track $index) {
         @if (isTitle) {
           <h2 class="text-title" [style.color]="item.textColor || 'var(--color-dark)'" [style.font-size]="item.fontSize ? item.fontSize + 'rem' : null">
             {{ item.text }}

@@ -31,7 +31,7 @@ import { DynamicComponentRendererComponent } from '../../components/dynamic-comp
         <app-error-state (retry)="loadPage()" />
       } @else if (pageData()) {
         <div class="page-content animate-fadeIn">
-          @for (component of pageData()!.dynamicComponents; track component.id) {
+          @for (component of pageData()!.dynamicComponents; track $index) {
             <app-dynamic-component-renderer [component]="component" />
           }
         </div>

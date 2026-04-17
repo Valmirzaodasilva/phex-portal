@@ -15,7 +15,7 @@
       <h4 class="footer-col-title">Contato</h4>
       @if (footer()?.contactInformation) {
         <ul class="contact-list">
-          @for (contact of footer()!.contactInformation; track contact.text) {
+          @for (contact of footer()!.contactInformation; track $index) {
             <li class="contact-item">
               <span class="material-icons contact-icon">{{ contact.icon }}</span>
               <span>{{ contact.text }}</span>
@@ -44,7 +44,7 @@
       <h4 class="footer-col-title">Redes Sociais</h4>
       @if (footer()?.social_media) {
         <div class="social-list">
-          @for (social of footer()!.social_media; track social.url) {
+          @for (social of footer()!.social_media; track $index) {
             <a class="social-link" [href]="social.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="social.icon">
               <span class="material-icons">{{ social.icon }}</span>
             </a>

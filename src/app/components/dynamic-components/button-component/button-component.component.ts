@@ -10,7 +10,7 @@ import { DataComponent } from '../../../core/models/dynamic-page.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="btn-comp container" [style.text-align]="getAlign()">
-      @for (item of data; track item.id) {
+      @for (item of data; track $index) {
         @if (isExternal(item.url || '')) {
           <a
             class="dynamic-btn"

@@ -13,7 +13,7 @@ import { ImagesService } from '../../../core/services/images.service';
     <section class="service-section">
       <div class="container">
         <div class="service-grid">
-          @for (item of data; track item.id) {
+          @for (item of data; track $index) {
             <div class="service-card" [style.background-image]="item.images?.[0] ? 'url(' + getImageUrl(item.images![0]) + ')' : 'none'">
               <div class="service-overlay">
                 @if (item.icon) {
