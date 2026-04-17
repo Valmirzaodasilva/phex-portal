@@ -1,39 +1,27 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ElementWatcherService } from './shared/services/element-watcher.serivce';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { LoadingSkeletonComponent } from './components/shared/loading-skeleton/loading-skeleton.component';
+import { LoadingService } from './core/services/loading.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, LoadingSkeletonComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <app-navbar />
+    <main class="min-h-screen">
+      @if (loading.loading()) {
+        <app-loading-skeleton />
+      } @else {
+        <router-outlet />
+      }
+    </main>
+    <app-footer />
+  `,
 })
-export class AppComponent implements OnInit, OnDestroy {
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private elementWatcher: ElementWatcherService
-  ) {}
-
-  ngOnInit() {
-    this.route.fragment.subscribe((fragment: string | null) => {
-      if (fragment) {
-        this.scrollToFragment(fragment);
-      }
-    });
-
-    this.elementWatcher.startWatching();
-  }
-
-  ngOnDestroy() {
-    this.elementWatcher.stopWatching();
-  }
-
-  private scrollToFragment(fragment: string): void {
-    const element = document.getElementById(fragment);
-    setTimeout(() => {
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 3000);
-  }
+export class AppComponent {
+  constructor(readonly loading: LoadingService) {}
 }

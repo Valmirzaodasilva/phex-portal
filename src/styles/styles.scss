@@ -1,50 +1,25 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@use 'tailwind.css';
 
-@import "bootstrap/scss/bootstrap";
+:root {
+  --color-primary: #6f93cd;
+  --color-dark: #2d4b7b;
+  --color-light: #d1e2ff;
+  --color-yellow: #f5ff7d;
+  --color-secondary: #ef4b43;
+  --color-white: #ffffff;
+}
 
-@import "variable";
-@import "cards";
-@import "colors";
-@import "fonts";
-@import "input";
-@import "table";
-@import "custom-styles";
+* {
+  box-sizing: border-box;
+}
 
-html,
 body {
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  background-color: #f9fafb;
+  color: #111827;
 }
 
-.divider {
-  border-top: 1px solid var(--primary-clear-color);
-  margin: 10px 0;
-}
-
-.portal-iframe {
-  margin: auto;
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
-
-.skeleton {
-  height: 100%;
-  width: 100%;
-  background: var(--background-secondary);
-  background-size: 100% 100%;
-  border-radius: 3px;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.input-group > input {
-  height: 60px;
+a {
+  text-decoration: none;
 }
