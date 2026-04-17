@@ -203,6 +203,8 @@ export class SswSearchComponent implements OnInit {
 
     this.sswService.search(this.searchForm.value as Record<string, unknown>).subscribe({
       next: (html) => {
+        // The SSW proxy returns trusted HTML from the internal backend — bypassSecurityTrustHtml is intentional.
+        // Backend sanitization is the primary defense; this bypasses Angular's additional escaping for rendering.
         this.resultHtml.set(this.sanitizer.bypassSecurityTrustHtml(html));
         this.searching.set(false);
       },

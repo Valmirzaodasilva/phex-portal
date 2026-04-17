@@ -7,11 +7,12 @@ import {
 } from '@angular/core';
 import { PortalApiService } from '../../core/services/portal-api.service';
 import { FooterModel } from '../../core/models/footer.model';
+import { SkeletonLoaderComponent } from '../../components/skeleton-loader/skeleton-loader.component';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [SkeletonLoaderComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <footer style="background-color: #2d4b7b;" class="text-white">
@@ -19,11 +20,7 @@ import { FooterModel } from '../../core/models/footer.model';
         @if (loading()) {
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @for (i of [1, 2, 3]; track i) {
-              <div class="space-y-3">
-                <div class="skeleton h-6 w-32"></div>
-                <div class="skeleton h-4 w-full"></div>
-                <div class="skeleton h-4 w-3/4"></div>
-              </div>
+              <app-skeleton-loader [count]="3" />
             }
           </div>
         } @else if (footer()) {
