@@ -25,48 +25,13 @@ body {
   color: #1a1a1a;
 }
 
-.btn-phex {
-  display: inline-block;
-  padding: 0.625rem 1.5rem;
-  background-color: #6f93cd;
-  color: #ffffff;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  cursor: pointer;
-  border: none;
-}
-
-.btn-phex:hover {
-  background-color: #2d4b7b;
-  transform: translateY(-1px);
-}
-
-.btn-phex-secondary {
-  display: inline-block;
-  padding: 0.625rem 1.5rem;
-  background-color: #ef4b43;
-  color: #ffffff;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  cursor: pointer;
-  border: none;
-}
-
-.btn-phex-secondary:hover {
-  background-color: #c23b34;
-  transform: translateY(-1px);
-}
-
+/* Shared base for all PHEX buttons */
+.btn-phex,
+.btn-phex-secondary,
 .btn-phex-yellow {
   display: inline-block;
   padding: 0.625rem 1.5rem;
-  background-color: #f5ff7d;
-  color: #2d4b7b;
-  font-weight: 700;
+  font-weight: 600;
   border-radius: 0.5rem;
   text-decoration: none;
   transition: background-color 0.2s ease, transform 0.1s ease;
@@ -74,10 +39,19 @@ body {
   border: none;
 }
 
-.btn-phex-yellow:hover {
-  background-color: #ecf56a;
-  transform: translateY(-1px);
+.btn-phex,
+.btn-phex-secondary {
+  color: #ffffff;
 }
+
+.btn-phex { background-color: #6f93cd; }
+.btn-phex:hover { background-color: #2d4b7b; transform: translateY(-1px); }
+
+.btn-phex-secondary { background-color: #ef4b43; }
+.btn-phex-secondary:hover { background-color: #c23b34; transform: translateY(-1px); }
+
+.btn-phex-yellow { background-color: #f5ff7d; color: #2d4b7b; font-weight: 700; }
+.btn-phex-yellow:hover { background-color: #ecf56a; transform: translateY(-1px); }
 
 /* Skeleton animation */
 @keyframes skeleton-shimmer {

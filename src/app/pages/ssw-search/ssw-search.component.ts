@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { PortalApiService } from '../../core/services/portal-api.service';
 import { SswService } from '../../core/services/ssw.service';
@@ -17,7 +18,7 @@ import { SkeletonLoaderComponent } from '../../components/skeleton-loader/skelet
 @Component({
   selector: 'app-ssw-search',
   standalone: true,
-  imports: [ReactiveFormsModule, SkeletonLoaderComponent],
+  imports: [ReactiveFormsModule, SkeletonLoaderComponent, NgClass],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="max-w-3xl mx-auto px-4 py-12">
@@ -41,7 +42,7 @@ import { SkeletonLoaderComponent } from '../../components/skeleton-loader/skelet
               @for (input of pageData()!.inputSSW ?? []; track input.name) {
                 <div
                   class="flex flex-col gap-1"
-                  [class.md:col-span-2]="(input.screenSize ?? 50) > 75"
+                  [ngClass]="(input.screenSize ?? 50) > 75 ? 'md:col-span-2' : ''"
                 >
                   <label
                     [for]="input.name"
