@@ -90,7 +90,7 @@ export class SswSearchComponent implements OnInit, OnDestroy {
 
     this.sswService.search(formData).subscribe({
       next: (html) => {
-        this.searchResult.set(this.sanitizer.bypassSecurityTrustHtml(html as unknown as string));
+        this.searchResult.set(this.sanitizer.bypassSecurityTrustHtml(html));
         this.loading.set(false);
       },
       error: () => {

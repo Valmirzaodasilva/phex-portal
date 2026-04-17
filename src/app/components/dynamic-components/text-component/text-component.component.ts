@@ -70,6 +70,7 @@ export class TextComponentComponent {
   getAlign(): string {
     const align = this.data?.[0]?.alignment;
     if (align === 'LEFT') return 'left';
+    if (align === 'CENTER') return 'center';
     if (align === 'RIGHT') return 'right';
     return 'left';
   }
