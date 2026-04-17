@@ -1,0 +1,96 @@
+<section class="ssw-page">
+  <div class="container">
+    @if (pageLoading()) {
+      <app-loading-spinner message="Carregando..." />
+    } @else if (error()) {
+      <app-error-state (retry)="loadPage()" />
+    } @else if (pageData()) {
+      <div class="ssw-card animate-slideUp">
+        <div class="ssw-header">
+          <span class="material-icons ssw-icon">local_shipping</span>
+          <h1 class="ssw-title">{{ pageData()!.title || 'Rastreamento' }}</h1>
+        </div>
+
+        @if (searchForm) {
+          <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="ssw-form">
+            <div class="ssw-inputs">
+              @for (input of pageData()!.inputSSW; track input.name) {
+                <div class="form-group" [style.flex]="'0 0 ' + (input.screenSize || 100) + '%'">
+                  <label class="form-label" [for]="input.name">
+                    {{ input.description }}
+                    @if (input.required) {
+                      <span class="required-mark">*</span>
+                    }
+                  </label>
+
+                  @if (isPasswordField(input)) {
+                    <div class="password-wrapper">
+                      <input
+                        [id]="input.name"
+                        class="form-input"
+                        [type]="getInputType(input)"
+                        [formControlName]="input.name"
+                        [placeholder]="input.description"
+                        autocomplete="off"
+                      >
+                      <button type="button" class="toggle-password" (click)="togglePassword(input.name)" [attr.aria-label]="isPasswordVisible(input.name) ? 'Ocultar senha' : 'Mostrar senha'">
+                        <span class="material-icons">{{ isPasswordVisible(input.name) ? 'visibility_off' : 'visibility' }}</span>
+                      </button>
+                    </div>
+                    <p class="password-hint">
+                      <span class="material-icons hint-icon">info</span>
+                      A senha é fornecida pela transportadora. Deixe em branco se não souber.
+                    </p>
+                  } @else {
+                    <input
+                      [id]="input.name"
+                      class="form-input"
+                      [type]="getInputType(input)"
+                      [formControlName]="input.name"
+                      [placeholder]="input.description"
+                    >
+                  }
+                </div>
+              }
+            </div>
+
+            @if (searchError()) {
+              <div class="search-error">
+                <span class="material-icons">warning</span>
+                {{ searchError() }}
+              </div>
+            }
+
+            <div class="form-actions" [class.align-center]="pageData()!.buttonAlignments === 'CENTER'" [class.align-right]="pageData()!.buttonAlignments === 'RIGHT'">
+              @if (pageData()!.hasClearButton) {
+                <button type="button" class="btn btn-outline" (click)="onClear()">
+                  {{ pageData()!.buttonClearText || 'Limpar' }}
+                </button>
+              }
+              <button type="submit" class="btn btn-primary" [disabled]="loading()">
+                @if (loading()) {
+                  <span class="btn-spinner"></span>
+                }
+                {{ pageData()!.buttonConfirmText || 'Buscar' }}
+              </button>
+            </div>
+          </form>
+        }
+
+        @if (loading()) {
+          <app-loading-spinner message="Consultando..." />
+        }
+
+        @if (searchResult()) {
+          <div class="search-result animate-slideUp">
+            <div class="result-header">
+              <span class="material-icons">check_circle</span>
+              <h3>Resultado da Consulta</h3>
+            </div>
+            <div class="result-content" [innerHTML]="searchResult()"></div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

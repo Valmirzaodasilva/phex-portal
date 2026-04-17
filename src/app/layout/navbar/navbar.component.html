@@ -1,0 +1,94 @@
+<nav class="navbar" [class.scrolled]="isScrolled()">
+  <div class="container navbar-container">
+    <!-- Logo -->
+    <a class="navbar-brand" routerLink="/" (click)="closeMobile()">
+      @if (config()?.logoUrl) {
+        <img [src]="config()!.logoUrl" alt="PHEX Logística" class="logo-img">
+      } @else {
+        <span class="logo-text">PHEX<span class="logo-accent">Logística</span></span>
+      }
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-list desktop-only">
+      @for (item of menuList(); track item.id) {
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'/' + item.url"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: false}"
+          >{{ item.name }}</a>
+        </li>
+      }
+
+      @if (sswMenuList().length > 0) {
+        <li class="nav-item nav-dropdown" [class.open]="activeSswDropdown()">
+          <button class="nav-link dropdown-trigger" (click)="toggleSswDropdown($event)">
+            Rastreamento
+            <span class="material-icons dropdown-icon">expand_more</span>
+          </button>
+          <ul class="dropdown-menu">
+            @for (item of sswMenuList(); track item.id) {
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="'/rastreamento/' + item.menuPortalUrl"
+                  (click)="closeMobile()"
+                >{{ item.menuPortalName }}</a>
+              </li>
+            }
+          </ul>
+        </li>
+      }
+    </ul>
+
+    <!-- Mobile Hamburger -->
+    <button class="hamburger mobile-only" (click)="toggleMobile()" [attr.aria-expanded]="isMobileOpen()" aria-label="Menu">
+      <span class="hamburger-line" [class.open]="isMobileOpen()"></span>
+      <span class="hamburger-line" [class.open]="isMobileOpen()"></span>
+      <span class="hamburger-line" [class.open]="isMobileOpen()"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Backdrop -->
+@if (isMobileOpen()) {
+  <div class="mobile-backdrop" (click)="closeMobile()"></div>
+}
+
+<!-- Mobile Drawer -->
+<div class="mobile-drawer" [class.open]="isMobileOpen()">
+  <div class="mobile-drawer-header">
+    <span class="logo-text">PHEX<span class="logo-accent">Logística</span></span>
+    <button class="close-btn" (click)="closeMobile()" aria-label="Fechar menu">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+  <ul class="mobile-nav-list">
+    @for (item of menuList(); track item.id) {
+      <li>
+        <a class="mobile-nav-link" [routerLink]="'/' + item.url" (click)="closeMobile()">{{ item.name }}</a>
+      </li>
+    }
+    @if (sswMenuList().length > 0) {
+      <li>
+        <button class="mobile-nav-link mobile-section-title" (click)="toggleSswDropdown($event)">
+          Rastreamento
+          <span class="material-icons" [class.rotated]="activeSswDropdown()">expand_more</span>
+        </button>
+        @if (activeSswDropdown()) {
+          <ul class="mobile-submenu">
+            @for (item of sswMenuList(); track item.id) {
+              <li>
+                <a class="mobile-nav-link sub" [routerLink]="'/rastreamento/' + item.menuPortalUrl" (click)="closeMobile()">
+                  {{ item.menuPortalName }}
+                </a>
+              </li>
+            }
+          </ul>
+        }
+      </li>
+    }
+  </ul>
+</div>

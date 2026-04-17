@@ -1,39 +1,26 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ElementWatcherService } from './shared/services/element-watcher.serivce';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { ScrollToTopComponent } from './shared/components/scroll-to-top/scroll-to-top.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent, FooterComponent, ScrollToTopComponent],
+  template: `
+    <app-navbar />
+    <main class="main-content">
+      <router-outlet />
+    </main>
+    <app-footer />
+    <app-scroll-to-top />
+  `,
+  styles: [`
+    .main-content {
+      min-height: calc(100vh - var(--navbar-height));
+      padding-top: var(--navbar-height);
+    }
+  `]
 })
-export class AppComponent implements OnInit, OnDestroy {
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    private elementWatcher: ElementWatcherService
-  ) {}
-
-  ngOnInit() {
-    this.route.fragment.subscribe((fragment: string | null) => {
-      if (fragment) {
-        this.scrollToFragment(fragment);
-      }
-    });
-
-    this.elementWatcher.startWatching();
-  }
-
-  ngOnDestroy() {
-    this.elementWatcher.stopWatching();
-  }
-
-  private scrollToFragment(fragment: string): void {
-    const element = document.getElementById(fragment);
-    setTimeout(() => {
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 3000);
-  }
-}
+export class AppComponent {}

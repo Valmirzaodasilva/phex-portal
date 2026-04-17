@@ -1,0 +1,35 @@
+<div class="banner-wrapper">
+  @if (banner()) {
+    <div
+      class="banner"
+      [style.background-image]="currentImageUrl() ? 'url(' + currentImageUrl() + ')' : null"
+    >
+      <div class="banner-gradient"></div>
+      <div class="banner-content container">
+        @if (banner()!.title) {
+          <h1 class="banner-title" [style.color]="banner()!.textColor || 'white'">
+            {{ banner()!.title }}
+          </h1>
+        }
+        @if (banner()!.subtitle) {
+          <p class="banner-subtitle" [style.color]="banner()!.textColor || 'rgba(255,255,255,0.9)'">
+            {{ banner()!.subtitle }}
+          </p>
+        }
+      </div>
+
+      @if (allImages().length > 1) {
+        <div class="banner-dots">
+          @for (img of allImages(); track $index) {
+            <button
+              class="dot"
+              [class.active]="$index === currentIndex()"
+              (click)="goTo($index)"
+              [attr.aria-label]="'Slide ' + ($index + 1)"
+            ></button>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>
